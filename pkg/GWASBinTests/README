@@ -1,0 +1,27 @@
+How to build
+------------
+
+Prerequisites:
+    - built with GCC/G++
+    - only tested on linux x86_64, but should build on any platform supported by GCC/G++
+    - the Random generator implementation from the randoma package requires
+            - Compiler support for 64-bit integers
+            - Compiler support for SSE2 and intrinsic functions
+    - OpenMP support to use the multithreaded parallelized version. OpenMP
+    	is available in GCC >= 4.2
+
+Just install it the usual way. The configure script should automatically detect if you have
+OpenMP support, and compile the package accordingly.
+
+If you want more control, unarchive it, cd to the source directory, then type
+R CMD INSTALL . in the console.
+
+CREDITS/LICENSES
+-----------------
+
+This software contains and makes use of other software:
+
+ - Boost: in src/libsrc/boost is a subset of the BOOST C++ libraries, see the src/libsrc/boost/LICENSE_1_0.txt
+ - Randoma: in src/libsrc there are some source files from the RANDOMA package, licensed under GPL 3
+   See src/libsrc/randomc.h for example.
+

@@ -1,0 +1,14 @@
+Most of the source files in this directory are imported from another project: nnbc++
+
+TO import the sources from nnbc++ in a way compatible with R build mechanism,
+the files are first copied in a proper layout using a Makefile in nnbc++.
+Example:
+
+cd nnbc++
+# assuming that NNBC is at the same level than nnbc++
+make copy-for-R DEST=/tmp/copy; cp -r /tmp/copy/* ../NNBC/src/libsrc/; rm -rf /tmp/copy
+
+The only files belonging to his R package in src/ are:
+	Makevars.in, Makevars.in, Makevars.win.in - to set additional preprocessor options
+
+	r_*.cpp - wrapper files to wrap nnbc++ with R

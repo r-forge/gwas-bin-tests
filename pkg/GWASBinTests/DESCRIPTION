@@ -1,0 +1,23 @@
+Package: GWASBinTests
+Maintainer: Karl Forner <karl.forner@merckserono.net>
+License: GPL (>= 2)
+Title: Bin-based analysis of genome-wide association studies
+LinkingTo: Rcpp
+Type: Package
+Author: Nicolas Omont, Jerome Wojcik, Karl Forner
+Description: GWASBinTests is a package to perform genome wide
+    association bin analysis. It computes p-values of association for
+    each bin and the associated FDR. It handles the analysis of several
+    association studies at once. The p-values are based on likelihood
+    scores that takes into account linkage disequilibrium.
+Version: 0.1
+Packaged: 2009-12-17 07:33:31 UTC; nomont
+Date: 2010-08-02
+Depends: R (>= 2.11.0), Rcpp (>= 0.8.4), GenABEL, Hmisc
+Suggests: RUnit
+Collate: 'bins.R' 'check.R' 'concepts.R' 'data.R'
+    'genotype_error_models.R' 'genotypes.R' 'GWASBinTests-package.R'
+    'merge.R' 'parameters.R' 'process.R' 'read.R' 'save.R'
+    'simpleAllelicSumScores.R' 'simpleDivariate.R'
+    'simpleGenotypicSumScores.R' 'simpleUnivariate.R' 'synopsis.R'
+    'zzz.R'

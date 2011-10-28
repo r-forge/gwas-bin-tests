@@ -1,0 +1,16 @@
+## Emacs please make this a -*- mode: Makefile; -*-
+##
+## Use the R_HOME indirection to support installations of multiple R version
+PKG_LIBS = $(shell $(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()" ) @OPENMP_CFLAGS@
+
+LIB_SRC_DIR = libsrc
+PKG_CXXFLAGS +=-I$(LIB_SRC_DIR) @OPENMP_CFLAGS@ -DNDEBUG -DUSING_R -Wno-long-long
+
+
+LIB_SOURCES = $(wildcard $(LIB_SRC_DIR)/*.cpp)
+LIB_OBJECTS = $(patsubst %.cpp, %.o, $(LIB_SOURCES))
+SRC_OBJECTS = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
+
+
+# Karl: I redefine the OBJECTS: the normal sources in the src/ directory + the sources in the subdir libsrc
+OBJECTS = $(LIB_OBJECTS) $(SRC_OBJECTS)

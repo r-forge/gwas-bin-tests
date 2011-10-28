@@ -1,0 +1,2 @@
+rm -rf config.status config.log autom4te.cache/
+rm -f  src/*.o src/*.so */*~ *~
