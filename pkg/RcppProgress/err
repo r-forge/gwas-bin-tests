@@ -1,0 +1,533 @@
+Converting Rd files to LaTeX 
+
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7)
+ %&-line parsing enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
+abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
+tin, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, r
+omanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turki
+sh, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+book.cls
+Document Class: book 2005/09/16 v1.4f Standard LaTeX document class
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+bk10.clo))
+(/sgcomp/aletheia/packages/x86_64/R-2.13.0/lib64/R/share/texmf/tex/latex/Rd.sty
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ifthen.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/tools
+/longtable.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/tools
+/bm.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+alltt.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/tools
+/verbatim.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/ltxmi
+sc/url.sty)
+(/sgcomp/aletheia/packages/x86_64/R-2.13.0/lib64/R/share/texmf/tex/latex/upquot
+e.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+textcomp.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ts1enc.def))) NOT loading ae
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+fontenc.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+t1enc.def))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/times.sty) NOT loading lmodern
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/graph
+ics/color.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf/tex/latex/config/col
+or.cfg)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/pdfte
+x-def/pdftex.def))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/hyperref.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/graph
+ics/keyval.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/ifpdf.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/ifvtex.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/ifx
+etex/ifxetex.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/hycolor.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/xcolor-patch.sty))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/pd1enc.def)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/etexcmds.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/infwarerr.sty))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf/tex/latex/config/hyp
+erref.cfg)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/kvoptions.sty)
+Implicit mode ON; LaTeX internals redefined
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/bitset.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/intcalc.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/bigintcalc.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/pdftexcmds.sty)))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/kvsetkeys.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/atbegshi.sty))
+*hyperref using default driver hpdftex*
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/hpdftex.def)
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 332.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 332.
+
+)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+makeidx.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+inputenc.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+utf8.def
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+t1enc.dfu)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ot1enc.dfu)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+omsenc.dfu)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ts1enc.dfu))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+latin1.def))
+Writing index file Rd2.idx
+No file Rd2.aux.
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ts1cmr.fd)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/t1ptm.fd)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/context/bas
+e/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/nameref.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/refcount.sty))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/t1phv.fd)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/t1pcr.fd)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+utf8.def)
+Overfull \hbox (15.46448pt too wide) in paragraph at lines 47--48
+[]\T1/ptm/m/n/10 - a mul-ti-threaded code
+[1{/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-var/fonts/map/pdft
+ex/updmap/pdftex.map}]
+Overfull \hbox (26.00832pt too wide) in paragraph at lines 89--89
+ []    \T1/pcr/m/n/10 Progress p(max, display_progress); // create the progress
+ monitor[] 
+
+Overfull \hbox (44.00832pt too wide) in paragraph at lines 92--92
+ []        \T1/pcr/m/n/10 if ( ! p.is_aborted() ) { // the only way to exit an 
+OpenMP loop[] 
+[2]
+Overfull \hbox (27.48415pt too wide) in paragraph at lines 160--162
+[]\T1/ptm/m/n/10 PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"` $(SHL
+IB_OPENMP_CXXFLAGS)
+
+Overfull \hbox (0.76396pt too wide) in paragraph at lines 163--164
+[]\T1/ptm/m/n/10 PKG_CXXFLAGS +=-Ilibsrc $(SHLIB_OPENMP_CXXFLAGS) `$(R_HOME)/bi
+n/Rscript
+No file Rd2.ind.
+[3] (./Rd2.aux) )
+(see the transcript file for additional information){/x/x14/sgcomp/aletheia/pac
+kages/x86_64/texlive-2008/texmf-dist/fonts/enc/dvips/base/8r.enc}</x/x14/sgcomp
+/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/type1/urw/courier/ucrr8
+a.pfb></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/typ
+e1/urw/helvetic/uhvr8a.pfb></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008
+/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></x/x14/sgcomp/aletheia/packages/x
+86_64/texlive-2008/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></x/x14/sgcomp/a
+letheia/packages/x86_64/texlive-2008/texmf-dist/fonts/type1/urw/times/utmr8a.pf
+b></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/type1/u
+rw/times/utmri8a.pfb>
+Output written on Rd2.pdf (3 pages, 80802 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.15 [20-Nov-2007] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (3 entries accepted, 0 rejected).
+Sorting entries....done (4 comparisons).
+Generating output file Rd2.ind....done (12 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7)
+ %&-line parsing enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
+abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
+tin, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, r
+omanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turki
+sh, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+book.cls
+Document Class: book 2005/09/16 v1.4f Standard LaTeX document class
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+bk10.clo))
+(/sgcomp/aletheia/packages/x86_64/R-2.13.0/lib64/R/share/texmf/tex/latex/Rd.sty
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ifthen.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/tools
+/longtable.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/tools
+/bm.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+alltt.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/tools
+/verbatim.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/ltxmi
+sc/url.sty)
+(/sgcomp/aletheia/packages/x86_64/R-2.13.0/lib64/R/share/texmf/tex/latex/upquot
+e.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+textcomp.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ts1enc.def))) NOT loading ae
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+fontenc.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+t1enc.def))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/times.sty) NOT loading lmodern
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/graph
+ics/color.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf/tex/latex/config/col
+or.cfg)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/pdfte
+x-def/pdftex.def))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/hyperref.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/graph
+ics/keyval.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/ifpdf.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/ifvtex.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/ifx
+etex/ifxetex.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/hycolor.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/xcolor-patch.sty))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/pd1enc.def)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/etexcmds.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/infwarerr.sty))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf/tex/latex/config/hyp
+erref.cfg)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/kvoptions.sty)
+Implicit mode ON; LaTeX internals redefined
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/bitset.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/intcalc.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/bigintcalc.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/pdftexcmds.sty)))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/kvsetkeys.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/atbegshi.sty))
+*hyperref using default driver hpdftex*
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/hpdftex.def)
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 332.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 332.
+
+)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+makeidx.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+inputenc.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+utf8.def
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+t1enc.dfu)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ot1enc.dfu)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+omsenc.dfu)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ts1enc.dfu))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+latin1.def))
+Writing index file Rd2.idx
+(./Rd2.aux)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ts1cmr.fd)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/t1ptm.fd)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/context/bas
+e/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/nameref.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/refcount.sty)) (./Rd2.out) (./Rd2.out)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/t1phv.fd)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/t1pcr.fd) (./Rd2.toc)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+utf8.def)
+Overfull \hbox (15.46448pt too wide) in paragraph at lines 47--48
+[]\T1/ptm/m/n/10 - a mul-ti-threaded code
+[1{/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-var/fonts/map/pdft
+ex/updmap/pdftex.map}]
+Overfull \hbox (26.00832pt too wide) in paragraph at lines 89--89
+ []    \T1/pcr/m/n/10 Progress p(max, display_progress); // create the progress
+ monitor[] 
+
+Overfull \hbox (44.00832pt too wide) in paragraph at lines 92--92
+ []        \T1/pcr/m/n/10 if ( ! p.is_aborted() ) { // the only way to exit an 
+OpenMP loop[] 
+[2]
+Overfull \hbox (27.48415pt too wide) in paragraph at lines 160--162
+[]\T1/ptm/m/n/10 PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"` $(SHL
+IB_OPENMP_CXXFLAGS)
+
+Overfull \hbox (0.76396pt too wide) in paragraph at lines 163--164
+[]\T1/ptm/m/n/10 PKG_CXXFLAGS +=-Ilibsrc $(SHLIB_OPENMP_CXXFLAGS) `$(R_HOME)/bi
+n/Rscript
+(./Rd2.ind [3] [4]) (./Rd2.aux) )
+(see the transcript file for additional information){/x/x14/sgcomp/aletheia/pac
+kages/x86_64/texlive-2008/texmf-dist/fonts/enc/dvips/base/8r.enc}</x/x14/sgcomp
+/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/type1/bluesky/cm/cmsy10
+.pfb></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/type
+1/urw/courier/ucrr8a.pfb></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/t
+exmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></x/x14/sgcomp/aletheia/packages/
+x86_64/texlive-2008/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></x/x14/sgco
+mp/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/type1/urw/times/utmb8
+a.pfb></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/typ
+e1/urw/times/utmr8a.pfb></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/te
+xmf-dist/fonts/type1/urw/times/utmr8a.pfb></x/x14/sgcomp/aletheia/packages/x86_
+64/texlive-2008/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (4 pages, 92508 bytes).
+Transcript written on Rd2.log.
+This is makeindex, version 2.15 [20-Nov-2007] (kpathsea + Thai support).
+Scanning input file Rd2.idx....done (3 entries accepted, 0 rejected).
+Sorting entries....done (4 comparisons).
+Generating output file Rd2.ind....done (12 lines written, 0 warnings).
+Output written in Rd2.ind.
+Transcript written in Rd2.ilg.
+This is pdfTeXk, Version 3.1415926-1.40.9 (Web2C 7.5.7)
+ %&-line parsing enabled.
+entering extended mode
+(./Rd2.tex
+LaTeX2e <2005/12/01>
+Babel <v3.8l> and hyphenation patterns for english, usenglishmax, dumylang, noh
+yphenation, german-x-2008-06-18, ngerman-x-2008-06-18, ancientgreek, ibycus, ar
+abic, basque, bulgarian, catalan, pinyin, coptic, croatian, czech, danish, dutc
+h, esperanto, estonian, farsi, finnish, french, galician, german, ngerman, mono
+greek, greek, hungarian, icelandic, indonesian, interlingua, irish, italian, la
+tin, lithuanian, mongolian, mongolian2a, bokmal, nynorsk, polish, portuguese, r
+omanian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, turki
+sh, ukenglish, ukrainian, uppersorbian, welsh, loaded.
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+book.cls
+Document Class: book 2005/09/16 v1.4f Standard LaTeX document class
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+bk10.clo))
+(/sgcomp/aletheia/packages/x86_64/R-2.13.0/lib64/R/share/texmf/tex/latex/Rd.sty
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ifthen.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/tools
+/longtable.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/tools
+/bm.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+alltt.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/tools
+/verbatim.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/ltxmi
+sc/url.sty)
+(/sgcomp/aletheia/packages/x86_64/R-2.13.0/lib64/R/share/texmf/tex/latex/upquot
+e.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+textcomp.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ts1enc.def))) NOT loading ae
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+fontenc.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+t1enc.def))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/times.sty) NOT loading lmodern
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/graph
+ics/color.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf/tex/latex/config/col
+or.cfg)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/pdfte
+x-def/pdftex.def))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/hyperref.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/graph
+ics/keyval.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/ifpdf.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/ifvtex.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/ifx
+etex/ifxetex.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/hycolor.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/xcolor-patch.sty))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/pd1enc.def)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/etexcmds.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/infwarerr.sty))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf/tex/latex/config/hyp
+erref.cfg)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/kvoptions.sty)
+Implicit mode ON; LaTeX internals redefined
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/bitset.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/intcalc.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/bigintcalc.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/pdftexcmds.sty)))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/kvsetkeys.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/generic/obe
+rdiek/atbegshi.sty))
+*hyperref using default driver hpdftex*
+
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/hpdftex.def)
+
+Package hyperref Warning: Option `hyperindex' has already been used,
+(hyperref)                setting the option has no effect on input line 332.
+
+
+Package hyperref Warning: Option `pagebackref' has already been used,
+(hyperref)                setting the option has no effect on input line 332.
+
+)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+makeidx.sty)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+inputenc.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+utf8.def
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+t1enc.dfu)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ot1enc.dfu)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+omsenc.dfu)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ts1enc.dfu))
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+latin1.def))
+Writing index file Rd2.idx
+(./Rd2.aux)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+ts1cmr.fd)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/t1ptm.fd)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/context/bas
+e/supp-pdf.tex
+[Loading MPS to PDF converter (version 2006.09.02).]
+)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/hyper
+ref/nameref.sty
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/oberd
+iek/refcount.sty)) (./Rd2.out) (./Rd2.out)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/t1phv.fd)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/psnfs
+s/t1pcr.fd) (./Rd2.toc)
+(/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/tex/latex/base/
+utf8.def)
+Overfull \hbox (15.46448pt too wide) in paragraph at lines 47--48
+[]\T1/ptm/m/n/10 - a mul-ti-threaded code
+[1{/x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-var/fonts/map/pdft
+ex/updmap/pdftex.map}]
+Overfull \hbox (26.00832pt too wide) in paragraph at lines 89--89
+ []    \T1/pcr/m/n/10 Progress p(max, display_progress); // create the progress
+ monitor[] 
+
+Overfull \hbox (44.00832pt too wide) in paragraph at lines 92--92
+ []        \T1/pcr/m/n/10 if ( ! p.is_aborted() ) { // the only way to exit an 
+OpenMP loop[] 
+[2]
+Overfull \hbox (27.48415pt too wide) in paragraph at lines 160--162
+[]\T1/ptm/m/n/10 PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"` $(SHL
+IB_OPENMP_CXXFLAGS)
+
+Overfull \hbox (0.76396pt too wide) in paragraph at lines 163--164
+[]\T1/ptm/m/n/10 PKG_CXXFLAGS +=-Ilibsrc $(SHLIB_OPENMP_CXXFLAGS) `$(R_HOME)/bi
+n/Rscript
+(./Rd2.ind [3] [4]) (./Rd2.aux) )
+(see the transcript file for additional information){/x/x14/sgcomp/aletheia/pac
+kages/x86_64/texlive-2008/texmf-dist/fonts/enc/dvips/base/8r.enc}</x/x14/sgcomp
+/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/type1/bluesky/cm/cmsy10
+.pfb></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/type
+1/urw/courier/ucrr8a.pfb></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/t
+exmf-dist/fonts/type1/urw/courier/ucrro8a.pfb></x/x14/sgcomp/aletheia/packages/
+x86_64/texlive-2008/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></x/x14/sgco
+mp/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/type1/urw/times/utmb8
+a.pfb></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/texmf-dist/fonts/typ
+e1/urw/times/utmr8a.pfb></x/x14/sgcomp/aletheia/packages/x86_64/texlive-2008/te
+xmf-dist/fonts/type1/urw/times/utmr8a.pfb></x/x14/sgcomp/aletheia/packages/x86_
+64/texlive-2008/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Rd2.pdf (4 pages, 93149 bytes).
+Transcript written on Rd2.log.
