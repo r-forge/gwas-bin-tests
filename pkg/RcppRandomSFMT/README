@@ -1,0 +1,15 @@
+How to build
+------------
+
+This package provides an interface for the www.agner.org/random Randomc library.
+
+
+CREDITS/LICENSES
+-----------------
+
+The Randomc is licensed under the GNU GPL v3, as is this R package.
+The Randomc sources in this R package have been copied from the randomc.zip package,
+available here: http://www.agner.org/random/randomc.zip
+Then the files randomc.h, sfmt.h were extracted and copied in the inst/include directory
+and sfmt.cpp extracted and copied to the src/ directory.
+

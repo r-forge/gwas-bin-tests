@@ -1,0 +1,16 @@
+Package: RcppRandomSFMT
+Title: A R and Rcpp interface to the SIMD-oriented Fast Mersenne Twister (SFMT) Random Number Generator provided by http://www.agner.org/random Randomc.
+Version: 0.1
+Date: 2012-02-21
+LinkingTo: Rcpp
+Type: Package
+LazyLoad: yes
+Author: Karl Forner <karl.forner@gmail.com>
+Maintainer: Karl Forner <karl.forner@gmail.com>
+Description: This package enables to use the SIMD-oriented Fast Mersenne Twister (SFMT) Random Number Generator provided by http://www.agner.org/random
+	Randomc in R packages, in c++ code and in R code. This random generator is very fast and is very well suited to parallelization. It can also produces
+	random number using parallelization that are identical to random bumbers produced in sequential code, leading to reproducible results.
+Depends: R (>= 2.13.0), Rcpp (>= 0.9.4)
+License: GPL (>= 3)
+Suggests: RUnit
+Packaged: 2012-03-01 17:28:58 UTC; m160508
