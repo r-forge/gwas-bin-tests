@@ -1,2 +1,2 @@
-useDynLib(RcppRandomSFMT)
+#useDynLib(RcppRandomSFMT)
 #exportPattern("^[[:alpha:]]+")

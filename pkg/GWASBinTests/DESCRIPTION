@@ -11,9 +11,8 @@ Description: GWASBinTests is a package to perform genome wide
     association studies at once. The p-values are based on likelihood
     scores that takes into account linkage disequilibrium.
 Version: 0.1
-Packaged: 2009-12-17 07:33:31 UTC; nomont
 Date: 2010-08-02
-Depends: R (>= 2.11.0), Rcpp (>= 0.8.4), GenABEL, Hmisc
+Depends: R (>= 2.13.0), Rcpp (>= 0.8.4), GenABEL, Hmisc
 Suggests: RUnit
 Collate: 'bins.R' 'check.R' 'concepts.R' 'data.R'
     'genotype_error_models.R' 'genotypes.R' 'GWASBinTests-package.R'
@@ -21,3 +20,4 @@ Collate: 'bins.R' 'check.R' 'concepts.R' 'data.R'
     'simpleAllelicSumScores.R' 'simpleDivariate.R'
     'simpleGenotypicSumScores.R' 'simpleUnivariate.R' 'synopsis.R'
     'zzz.R'
+Packaged: 2012-02-17 17:59:01 UTC; m160508

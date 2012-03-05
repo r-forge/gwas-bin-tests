@@ -1,16 +1,4 @@
-## Emacs please make this a -*- mode: Makefile; -*-
-##
 ## Use the R_HOME indirection to support installations of multiple R version
-PKG_LIBS = $(shell $(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()" ) -fopenmp
-
-LIB_SRC_DIR = libsrc
-PKG_CXXFLAGS +=-I$(LIB_SRC_DIR) -fopenmp -DNDEBUG -DUSING_R -Wno-long-long
-
-
-LIB_SOURCES = $(wildcard $(LIB_SRC_DIR)/*.cpp)
-LIB_OBJECTS = $(patsubst %.cpp, %.o, $(LIB_SOURCES))
-SRC_OBJECTS = $(patsubst %.cpp, %.o, $(wildcard *.cpp))
-
-
-# Karl: I redefine the OBJECTS: the normal sources in the src/ directory + the sources in the subdir libsrc
-OBJECTS = $(LIB_OBJECTS) $(SRC_OBJECTS)
+PKG_LIBS = `$(R_HOME)/bin$(R_ARCH_BIN)/Rscript -e "Rcpp:::LdFlags()"` $(SHLIB_OPENMP_CXXFLAGS)
+PKG_CXXFLAGS +=-Ilibsrc $(SHLIB_OPENMP_CXXFLAGS) -DNDEBUG -DUSING_R -Wno-long-long
+OBJECTS = libsrc/binomial.o libsrc/bins.o libsrc/chromosomes.o libsrc/dataset.o libsrc/divariate_likelihood.o libsrc/divariate_score_function.o libsrc/divariate_table.o libsrc/fdr.o libsrc/genabel.o libsrc/genotype_error_model.o libsrc/group_iterative_table_scores_pvalues_computable.o libsrc/group_manager.o libsrc/iterative_table_score_function.o libsrc/iterative_table_scores_pvalues_computable.o libsrc/misc.o libsrc/nnbc_engine.o libsrc/pvalues.o libsrc/pvalues_computer.o libsrc/sfmt.o libsrc/sum_scores.o libsrc/table1snp.o libsrc/table2snp.o libsrc/univariate_likelihood.o libsrc/univariate_score_function.o libsrc/univariate_table.o r_wrapper.o
