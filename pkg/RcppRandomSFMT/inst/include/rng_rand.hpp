@@ -16,10 +16,14 @@ namespace RcppRandomSFMT {
 
 class RNGrand {
 public:
-	RNGrand(int seed=time(NULL), int seed2 = 0) { srand(seed); }
+	RNGrand(int seed=time(NULL), int seed2 = 0) {
+		set_seed(seed);
+	}
 	~RNGrand() {}
 
 public: // ========== CLASS METHODS ==========
+	// N.B: in any case seed2 is IGNORED
+	void set_seed(int seed1, int seed2=0) {  srand(seed); }
 	double random() {  rand()/(RAND_MAX+1.0);  }
 	int random_int_below(int n) { return (int) ( ((double)n)* ( rand()/(RAND_MAX+1.0) ) );}
 };

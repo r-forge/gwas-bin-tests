@@ -22,7 +22,7 @@ public: // ========== CLASS METHODS ==========
 	int random_int_below(int n) {
 			return _impl.fast_random_int_below(n);
 	}
-	void reseed(int seed1, int seed2=0) {
+	void set_seed(int seed1, int seed2=0) {
 			_impl.reseed(seed1, seed2);
 	}
 private:

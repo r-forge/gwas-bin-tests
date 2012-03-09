@@ -23,6 +23,7 @@ public:
 	~RNG() {}
 
 public: // ========== CLASS METHODS ==========
+	void set_seed(int seed1, int seed2=0);
 	double random() { return 0.0; }
 	int random_int_below(int n) { return 0;}
 };
