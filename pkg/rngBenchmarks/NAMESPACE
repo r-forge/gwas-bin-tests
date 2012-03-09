@@ -1,6 +1,5 @@
 export(pi_error,pi_rng_threaded)
 
 # C code
-import(rngOpenMP)
 import(RcppRandomSFMT)
 

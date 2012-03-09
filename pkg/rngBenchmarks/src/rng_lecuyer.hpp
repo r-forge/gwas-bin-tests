@@ -15,7 +15,7 @@ public:
 
 	RNG_lecuyer(int seed1, int seed2) {
 		_stream = RngStream_CreateStream("RNG_lecuyer");
-		reseed(seed1, seed2);
+		set_seed(seed1, seed2);
 	}
 	~RNG_lecuyer() { RngStream_DeleteStream(&_stream);}
 
@@ -24,7 +24,7 @@ public: // ========== CLASS METHODS ==========
 	int random_int_below(int n) {
 		return RngStream_RandInt(_stream, 0, n);
 	}
-	void reseed(int seed1, int seed2=0) {
+	void set_seed(int seed1, int seed2=0) {
 		unsigned long seeds[6] = { seed1, seed2, seed1, seed2, seed1, seed2 };
 		RngStream_SetSeed(_stream, seeds);
 	}

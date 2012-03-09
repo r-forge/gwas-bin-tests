@@ -2,19 +2,19 @@
 #
 ###############################################################################
 
-rng_openmp <- function(n , threads, seed){
+rng_openmp <- function(n , threads, seed, chunk_size){
 	set.seed(seed);
 	.Call("_pi_rngOpenMP_threaded",  n , threads, seed, PACKAGE="rngBenchmarks")
 }
 
-pi_rng_threaded <- function(n, threads, type, seed = 1) {
+pi_rng_threaded <- function(n, threads, type, seed = 1, chunk_size=10000) {
 	switch(type,
-		sfmt = .Call("_pi_rng_sfmt_threaded",  n , threads, seed, PACKAGE="rngBenchmarks")
-		,lecuyer=.Call("_pi_rng_lecuyer_threaded",  n , threads, seed, PACKAGE="rngBenchmarks")
-		,random_r=.Call("_pi_rng_random_r_threaded",  n , threads, seed, PACKAGE="rngBenchmarks")
+		sfmt = .Call("_pi_rng_sfmt_threaded",  n , threads, seed, chunk_size,PACKAGE="rngBenchmarks")
+		,lecuyer=.Call("_pi_rng_lecuyer_threaded",  n , threads, seed, chunk_size, PACKAGE="rngBenchmarks")
+		,random_r=.Call("_pi_rng_random_r_threaded",  n , threads, seed, chunk_size, PACKAGE="rngBenchmarks")
 		,pureR_sequential = rngBenchmarks:::pi_pureR_sequential(n, seed)
 		,pureR_sequential_vectorized = rngBenchmarks:::pi_pureR_sequential_vectorized(n, seed)
-		,rng_openmp=rng_openmp(n, threads, seed)
+		,mrg32k5a=.Call("_pi_rng_mrg32k5a_threaded",  n , threads, seed, chunk_size, PACKAGE="rngBenchmarks")
 	)
 }
 

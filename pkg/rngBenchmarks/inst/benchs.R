@@ -3,19 +3,19 @@ library(car)
 library(plyr)
 library(lattice)
 
-types <- c("pureR_sequential_vectorized", "random_r", "lecuyer", "rng_openmp", "sfmt")
+types <- c("pureR_sequential_vectorized", "random_r", "lecuyer", "sfmt", "mrg32k5a")
 # check reproducibility
 n <- 1e6
 res <- sapply(types, function(type) {
 			cat("type=", type, "\n")
 			pi1 <- pi_rng_threaded(n, threads=1, seed=2, type=type)
-			cat
-			pi2 <- pi_rng_threaded(n, threads=1, seed=2, type=type)
+
+			pi2 <- pi_rng_threaded(n, threads=10, seed=2, type=type)
 			abs(pi1-pi2)
 })
 stopifnot(all( res == 0 ))
 
-fast_types <- c("random_r", "lecuyer", "rng_openmp", "sfmt")
+fast_types <- c("random_r", "lecuyer", "mrg32k5a", "sfmt")
 #fast_types <- c("rng_openmp", "sfmt")
 nbs <- c(1e7, 1e8, 1e9)
 #nbs <- c(1e5, 1e6)
@@ -78,6 +78,7 @@ pi_error(pirl)
 setwd("~/workspace/rngBenchmarks")
 library(rngOpenMP, lib.loc="~/R")
 library(RcppRandomSFMT, lib.loc="~/R")
+library(rngBenchmarks, lib.loc="~/R")
 library(rngBenchmarks, lib.loc="..truetest/")
 
 unloadNamespace("rngBenchmarks")
