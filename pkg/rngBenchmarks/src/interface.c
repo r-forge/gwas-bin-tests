@@ -1,6 +1,6 @@
 #include <R.h>
 #include "rngOpenMP.h"
-
+/*
 void testInterleaving(int *pn, int *pm, int *ind, double *out)
 {
     int i;
@@ -41,3 +41,4 @@ void testThreaded(int *pn, int *length, double *out)
     destroyRngArray();
 }
 
+*/
