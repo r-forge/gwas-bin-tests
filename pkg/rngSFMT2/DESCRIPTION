@@ -1,0 +1,9 @@
+Package: rngSFMT2
+Title: SFMT random number generator
+Version: 0.1-2
+Date: 2012-04-17
+Author: Petr Savicky <savicky@cs.cas.cz>
+Maintainer: Petr Savicky <savicky@cs.cas.cz>
+Description: SFMT random number generator in C++
+License: BSD
+Packaged: 2012-04-16 18:28:14 UTC; savicky

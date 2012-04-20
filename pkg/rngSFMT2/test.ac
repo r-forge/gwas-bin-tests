@@ -1,0 +1,17 @@
+# Process this file with autoconf to produce a configure script.
+AC_INIT(rngSFMT2, 0.1, karl.forner@gmail.com)
+
+# AC_DEFINE_SUBST(NAME, VALUE, DESCRIPTION)
+# -----------------------------------------
+AC_DEFUN([AC_DEFINE_SUBST], [
+AC_DEFINE([$1], [$2], [$3])
+AC_SUBST([$1], ['$2'])
+])
+
+AC_DEFINE_SUBST([MY_HAVE_SSE2],[1])
+
+
+
+AC_CONFIG_FILES([src/Makevars])
+
+AC_OUTPUT
