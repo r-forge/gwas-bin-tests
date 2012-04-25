@@ -1,16 +1,6 @@
-test_SFMT607 <- function(seed, nb=1) {
-	.C("sfmt_607_test", as.integer(seed),as.integer(nb),
+test_SFMT <- function(seed, nb=1) {
+	.C("sfmt_test", as.integer(seed),as.integer(nb),
 					out=double(1), PACKAGE = "rngSFMT2")$out
-}
-
-test_SFMT19937NORMAL <- function(seed, nb=1) {
-	.C("sfmt_19937NORMAL", as.integer(seed),as.integer(nb),
-			out=double(1), PACKAGE = "rngSFMT2")$out
-}
-
-test_SFMT19937SSE2 <- function(seed, nb=1) {
-	.C("sfmt_19937SSE2", as.integer(seed),as.integer(nb),
-			out=double(1), PACKAGE = "rngSFMT2")$out
 }
 
 initSFMT <- function(seed=NULL, vseed=NULL)

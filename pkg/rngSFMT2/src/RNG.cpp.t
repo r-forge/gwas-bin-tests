@@ -1,6 +1,8 @@
 // not meant to be compiled directly
 //#define static
+
 #include "SFMT.c"
+
 //#undef static
 
 class RNG {

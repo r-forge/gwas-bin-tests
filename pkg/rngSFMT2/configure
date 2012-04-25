@@ -618,6 +618,7 @@ CPPFLAGS
 LDFLAGS
 CFLAGS
 CC
+MEXP
 target_alias
 host_alias
 build_alias
@@ -659,10 +660,12 @@ SHELL'
 ac_subst_files=''
 ac_user_opts='
 enable_option_checking
+enable_sse2
 '
       ac_precious_vars='build_alias
 host_alias
 target_alias
+MEXP
 CC
 CFLAGS
 LDFLAGS
@@ -1282,7 +1285,16 @@ if test -n "$ac_init_help"; then
    esac
   cat <<\_ACEOF
 
+Optional Features:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --disable-sse2          Disable sse2
+
 Some influential environment variables:
+  MEXP        Mersenne exponent and the period of generated code will be
+              2MEXP-1. MEXP must be one of 607, 1279, 2281, 4253, 11213,
+              19937, 44497, 86243, 132049, 216091.
   CC          C compiler command
   CFLAGS      C compiler flags
   LDFLAGS     linker flags, e.g. -L<lib dir> if you have libraries in a
@@ -2007,6 +2019,29 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
 ac_config_headers="$ac_config_headers src/config.h"
+
+
+
+### ** Precious variables.: setting MEXP
+
+# setting default value
+if test -z "$MEXP"; then
+  MEXP=19937;
+fi
+
+cat >>confdefs.h <<_ACEOF
+#define MEXP $MEXP
+_ACEOF
+
+
+### forcing not to use SSE2
+# Check whether --enable-sse2 was given.
+if test "${enable_sse2+set}" = set; then :
+  enableval=$enable_sse2;
+else
+  enable_sse2=yes
+fi
+
 
 
 # Checks for programs.
@@ -4425,6 +4460,24 @@ fi
   fi
 
 
+
+
+# ALTIVEC SUPPORT
+if test "$ax_cv_have_avx_ext" = yes; then
+
+$as_echo "#define HAVE_ALTIVEC 1" >>confdefs.h
+
+fi
+
+if test "$ax_cv_have_sse2_ext" = yes; then
+    echo "HAVE_SSE2=$HAVE_SSE2"
+    HAVE_SSE2=1
+    if test "x$enable_sse2" = "xno"; then
+        echo "SSE2 supported BUT disabled by user"
+        $as_echo "#define HAVE_SSE2 0" >>confdefs.h
+
+    fi
+fi
 
 
 ac_config_files="$ac_config_files src/Makevars"

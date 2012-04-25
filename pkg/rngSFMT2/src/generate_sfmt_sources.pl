@@ -36,7 +36,7 @@ foreach my $mexp (@exponents) {
 #ifndef ${namespace}_HPP
 #define ${namespace}_HPP
 
-
+#include <inttypes.h>
 namespace $namespace {
 #include "RNG.hpp.t"
 }
@@ -51,6 +51,7 @@ EOF
 /* This file was automatically generated using perl script $0. Do not edit ! */
 
 #include "config.h"
+#define ALWAYS
 
 #ifdef $when
 
@@ -60,7 +61,12 @@ EOF
 #define $define
 #define MEXP $mexp
 
-#include "$header"
+//#include "$header"
+#include <string.h>
+#include <assert.h>
+#include <stdio.h>
+#include <string>
+#include <inttypes.h>
 namespace $namespace {
 #include "RNG.cpp.t"
 }

@@ -4,7 +4,7 @@
 
 SIMD_FLAGS=@SIMD_FLAGS@
 
-PKG_CPPFLAGS= -ISFMT-src -Iauto  $(SIMD_FLAGS)
+PKG_CPPFLAGS= -ISFMT-src $(SIMD_FLAGS)
 #PKG_LIBS = $(shell $(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()" ) @OPENMP_CFLAGS@
 
 #LIB_SRC_DIR = libsrc

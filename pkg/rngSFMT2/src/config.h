@@ -7,6 +7,9 @@
 /* Define IF IT IS bIG ENDIAN */
 /* #undef BIG_ENDIAN */
 
+/* Support AVX (Advanced Vector Extensions) instructions */
+/* #undef HAVE_ALTIVEC */
+
 /* Define to 1 if you have the <altivec.h> header file. */
 /* #undef HAVE_ALTIVEC_H */
 
@@ -29,7 +32,7 @@
 #define HAVE_SSE 1
 
 /* Support SSE2 (Streaming SIMD Extensions 2) instructions */
-#define HAVE_SSE2 1
+#define HAVE_SSE2 0
 
 /* Support SSE3 (Streaming SIMD Extensions 3) instructions */
 #define HAVE_SSE3 1
@@ -63,6 +66,9 @@
 
 /* Define to 1 if you have the <unistd.h> header file. */
 #define HAVE_UNISTD_H 1
+
+/* The Mersenne exponent */
+#define MEXP 11213
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "karl.forner@gmail.com"
