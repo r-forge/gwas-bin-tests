@@ -661,6 +661,7 @@ ac_subst_files=''
 ac_user_opts='
 enable_option_checking
 enable_sse2
+enable_altivec
 '
       ac_precious_vars='build_alias
 host_alias
@@ -1289,7 +1290,8 @@ Optional Features:
   --disable-option-checking  ignore unrecognized --enable/--with options
   --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
   --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
-  --disable-sse2          Disable sse2
+  --disable-sse2          Disable sse2 implementation
+  --disable-altivec       Disable altivec implementation
 
 Some influential environment variables:
   MEXP        Mersenne exponent and the period of generated code will be
@@ -2018,6 +2020,7 @@ ac_compiler_gnu=$ac_cv_c_compiler_gnu
 # safety check, probably useless that it is the right src directory
 
 
+# will process src/config.h.in, created by autoheader to produce src/config.h
 ac_config_headers="$ac_config_headers src/config.h"
 
 
@@ -2042,6 +2045,14 @@ else
   enable_sse2=yes
 fi
 
+
+### forcing not to use ALTIVEC
+# Check whether --enable-altivec was given.
+if test "${enable_altivec+set}" = set; then :
+  enableval=$enable_altivec;
+else
+  enable_altivec=yes
+fi
 
 
 # Checks for programs.
@@ -3093,6 +3104,7 @@ ac_link='$CC -o conftest$ac_exeext $CFLAGS $CPPFLAGS $LDFLAGS conftest.$ac_ext $
 ac_compiler_gnu=$ac_cv_c_compiler_gnu
 
 
+# not used for now
 
 ac_ext=c
 ac_cpp='$CPP $CPPFLAGS'
@@ -3505,8 +3517,7 @@ fi
 done
 
 
-
-# check endianness define BIG_ENDIAN if big endian
+# check endianness define BIG_ENDIAN if big endian, not used either
  { $as_echo "$as_me:${as_lineno-$LINENO}: checking whether byte ordering is bigendian" >&5
 $as_echo_n "checking whether byte ordering is bigendian... " >&6; }
 if ${ac_cv_c_bigendian+:} false; then :
@@ -3734,8 +3745,7 @@ $as_echo "#define AC_APPLE_UNIVERSAL_BUILD 1" >>confdefs.h
  esac
 
 
-# additional macros
-
+# additional macros (stored in the m4/ directory) to detect SIMD extensions (SSE2, ALTIVEC)
 # ===========================================================================
 #   http://www.gnu.org/software/autoconf-archive/ax_check_compile_flag.html
 # ===========================================================================
@@ -3894,7 +3904,7 @@ $as_echo "#define AC_APPLE_UNIVERSAL_BUILD 1" >>confdefs.h
 
 
 
-# to detect SIMD extensions:
+# call the SIMD detection macro that we just included
 
 ac_ext=c
 ac_cpp='$CPP $CPPFLAGS'
@@ -4464,13 +4474,20 @@ fi
 
 # ALTIVEC SUPPORT
 if test "$ax_cv_have_avx_ext" = yes; then
+    HAVE_ALTIVEC=1
+    if test "x$enable_altivec" = "xno"; then
+        echo "ALTIVEC supported BUT disabled by user"
+
+$as_echo "#define HAVE_ALTIVEC 0" >>confdefs.h
+
+    else
 
 $as_echo "#define HAVE_ALTIVEC 1" >>confdefs.h
 
+    fi
 fi
 
 if test "$ax_cv_have_sse2_ext" = yes; then
-    echo "HAVE_SSE2=$HAVE_SSE2"
     HAVE_SSE2=1
     if test "x$enable_sse2" = "xno"; then
         echo "SSE2 supported BUT disabled by user"
@@ -4479,7 +4496,7 @@ if test "$ax_cv_have_sse2_ext" = yes; then
     fi
 fi
 
-
+# substitute vars  in src/Makevars.in ==> src/Makevars
 ac_config_files="$ac_config_files src/Makevars"
 
 

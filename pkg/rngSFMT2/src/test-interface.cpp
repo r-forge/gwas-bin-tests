@@ -18,6 +18,10 @@ void sfmt_test(int *seed, int *nb, double *res)
 	*res = sum;
 }
 
+void sfmt_printid() {
+	Rprintf("SFMT ID=%s\n", RNG::SFMT::ID().c_str());
+}
+
 
 } // extern "C"
 

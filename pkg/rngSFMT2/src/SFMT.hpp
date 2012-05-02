@@ -1,33 +1,50 @@
+#ifndef SFMT_HPP
+#define SFMT_HPP
+
 // CRITICAL: set MEXP and the SIMD implementation type (HAVE_SSE2, HAVE_ALTIVEC), etc...
 #include "config.h"
+
+// The configure option --disable-sse2 set HAVE_SSE2 to 0 but does not undef it
+// because I was not able to dot it. So here we check this value
+#ifdef HAVE_SSE2
 #if HAVE_SSE2 == 0
 #undef HAVE_SSE2
 #warning undefining HAVE_SSE2
 #endif
+#endif
 
+// same for --disable-altivec and HAVE_ALTIVEC
+#ifdef HAVE_ALTIVEC
+#if HAVE_ALTIVEC == 0
+#undef HAVE_ALTIVEC
+#warning undefining HAVE_ALTIVEC
+#endif
+#endif
 
 // include the defined constants of the original C implementations as well as some functions
 extern "C" {
-#define static
+#define static // trick to remove the C static stuff
 #include "SFMT.c"
 #undef static
 }
-
 
 #include <string>
 
 namespace RNG {
 
-//
 
 class SFMT {
 private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 
 		// ===== instance variable ====
+		// WRAP INSTRUCTIONS 1:
 		// These state variables come from the "FILE GLOBAL VARIABLES" section
-		// in SFMT.c: take all variables without the "static" keyword
+		// of SFMT.c: take all variables without the "static" keyword
 		// and put the definitions in the init() method
 		// because it is not allowed  in C++ to define vars inside a class
+
+
+		// ========== BEGIN ===========
 
 		/** the 128-bit internal state array */
 		w128_t sfmt[N];
@@ -45,9 +62,9 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		/** a parity check vector which certificate the period of 2^{MEXP} */
 		uint32_t parity[4]; // = {PARITY1, PARITY2, PARITY3, PARITY4};
 
+		// ========== END ===========
 
-
-	public: // ========== LIFECYCLE
+	public: // ========== LIFECYCLE ======================
 		/**
 		 * init the rng using SFMT C function gen_rand_all() :
 		 * This function fills the internal state array with pseudorandom
@@ -103,7 +120,7 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		 */
 		void set_seeds(uint32_t *init_key, int key_length) { init_by_array(init_key, key_length);  }
 
-		std::string id() const {
+		static std::string ID()  {
 			return get_idstring();
 		}
 
@@ -114,6 +131,12 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		 *
 		 */
 		 void init() {
+
+			// WRAP INSTRUCTIONS 2:
+			// This corresponds to the initialization of state variables that comes
+			 // from the "FILE GLOBAL VARIABLES" section  of SFMT.c
+
+			// ========== BEGIN ===========
 			/** the 32bit integer pointer to the 128-bit internal state array */
 			psfmt32 = &sfmt[0].u[0];
 			#if !defined(BIG_ENDIAN64) || defined(ONLY64)
@@ -128,25 +151,21 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		    parity[1] = PARITY2;
 		    parity[2] = PARITY3;
 		    parity[3] = PARITY4;
+
+		    // ========== END ===========
+
 		}
 
 	private: // ==== original inline static C SFMT functions =====
-		// these are the function that use state global variables
-		// because we have instance variables with the same name
-		// we can use the exact same code
-		// so there functions are just copy/pasted here
-
-		// Functions: gen_rand32, gen_rand64, fill_array32, fill_array64
-		// init_gen_rand, init_by_array, gen_rand_all, gen_rand_array
 
 // little trick: remove the static statements
 #define static
 
 #ifdef HAVE_SSE2
-// other trick: re-include SSE2 specific functions as instance methods
-//#undef SFMT_SSE2_H // force re-inclusion
+// WRAP INSTRUCTIONS 3:
+// copy/paste here the definitions of functions from SFMT-sse2.h: mm_recursion, 	 gen_rand_all, gen_rand_array
 
-// Here copy/paste functions definitions from SFMT-sse2.h : 	mm_recursion, 	 gen_rand_all, gen_rand_array
+
 		 /**
 		  * This function represents the recursion formula.
 		  * @param a a 128-bit part of the interal state array
@@ -249,6 +268,152 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 
 #endif
 
+
+#ifdef HAVE_ALTIVEC
+// WRAP INSTRUCTIONS 4:
+// copy/paste here the definitions of functions from SFMT-alti.h:  gen_rand_all, gen_rand_array, swap
+
+/**
+* This function represents the recursion formula in AltiVec and BIG ENDIAN.
+* @param a a 128-bit part of the interal state array
+* @param b a 128-bit part of the interal state array
+* @param c a 128-bit part of the interal state array
+* @param d a 128-bit part of the interal state array
+* @return output
+*/
+inline static vector unsigned int vec_recursion(vector unsigned int a,
+					vector unsigned int b,
+					vector unsigned int c,
+					vector unsigned int d) {
+
+ const vector unsigned int sl1 = ALTI_SL1;
+ const vector unsigned int sr1 = ALTI_SR1;
+#ifdef ONLY64
+ const vector unsigned int mask = ALTI_MSK64;
+ const vector unsigned char perm_sl = ALTI_SL2_PERM64;
+ const vector unsigned char perm_sr = ALTI_SR2_PERM64;
+#else
+ const vector unsigned int mask = ALTI_MSK;
+ const vector unsigned char perm_sl = ALTI_SL2_PERM;
+ const vector unsigned char perm_sr = ALTI_SR2_PERM;
+#endif
+ vector unsigned int v, w, x, y, z;
+ x = vec_perm(a, (vector unsigned int)perm_sl, perm_sl);
+ v = a;
+ y = vec_sr(b, sr1);
+ z = vec_perm(c, (vector unsigned int)perm_sr, perm_sr);
+ w = vec_sl(d, sl1);
+ z = vec_xor(z, w);
+ y = vec_and(y, mask);
+ v = vec_xor(v, x);
+ z = vec_xor(z, y);
+ z = vec_xor(z, v);
+ return z;
+}
+
+/**
+* This function fills the internal state array with pseudorandom
+* integers.
+*/
+inline static void gen_rand_all(void) {
+ int i;
+ vector unsigned int r, r1, r2;
+
+ r1 = sfmt[N - 2].s;
+ r2 = sfmt[N - 1].s;
+ for (i = 0; i < N - POS1; i++) {
+r = vec_recursion(sfmt[i].s, sfmt[i + POS1].s, r1, r2);
+sfmt[i].s = r;
+r1 = r2;
+r2 = r;
+ }
+ for (; i < N; i++) {
+r = vec_recursion(sfmt[i].s, sfmt[i + POS1 - N].s, r1, r2);
+sfmt[i].s = r;
+r1 = r2;
+r2 = r;
+ }
+}
+
+/**
+* This function fills the user-specified array with pseudorandom
+* integers.
+*
+* @param array an 128-bit array to be filled by pseudorandom numbers.
+* @param size number of 128-bit pesudorandom numbers to be generated.
+*/
+inline static void gen_rand_array(w128_t *array, int size) {
+ int i, j;
+ vector unsigned int r, r1, r2;
+
+ r1 = sfmt[N - 2].s;
+ r2 = sfmt[N - 1].s;
+ for (i = 0; i < N - POS1; i++) {
+r = vec_recursion(sfmt[i].s, sfmt[i + POS1].s, r1, r2);
+array[i].s = r;
+r1 = r2;
+r2 = r;
+ }
+ for (; i < N; i++) {
+r = vec_recursion(sfmt[i].s, array[i + POS1 - N].s, r1, r2);
+array[i].s = r;
+r1 = r2;
+r2 = r;
+ }
+ /* main loop */
+ for (; i < size - N; i++) {
+r = vec_recursion(array[i - N].s, array[i + POS1 - N].s, r1, r2);
+array[i].s = r;
+r1 = r2;
+r2 = r;
+ }
+ for (j = 0; j < 2 * N - size; j++) {
+sfmt[j].s = array[j + size - N].s;
+ }
+ for (; i < size; i++) {
+r = vec_recursion(array[i - N].s, array[i + POS1 - N].s, r1, r2);
+array[i].s = r;
+sfmt[j++].s = r;
+r1 = r2;
+r2 = r;
+ }
+}
+
+ #ifndef ONLY64
+ #if defined(__APPLE__)
+ #define ALTI_SWAP (vector unsigned char) \
+	(4, 5, 6, 7, 0, 1, 2, 3, 12, 13, 14, 15, 8, 9, 10, 11)
+ #else
+ #define ALTI_SWAP {4, 5, 6, 7, 0, 1, 2, 3, 12, 13, 14, 15, 8, 9, 10, 11}
+ #endif
+ /**
+  * This function swaps high and low 32-bit of 64-bit integers in user
+  * specified array.
+  *
+  * @param array an 128-bit array to be swaped.
+  * @param size size of 128-bit array.
+  */
+ inline static void swap(w128_t *array, int size) {
+	 int i;
+	 const vector unsigned char perm = ALTI_SWAP;
+
+	 for (i = 0; i < size; i++) {
+	array[i].s = vec_perm(array[i].s, (vector unsigned int)perm, perm);
+	 }
+ }
+ #endif
+
+#endif
+
+// WRAP INSTRUCTIONS 5:
+// these are the function that use state global variables
+// because we have instance variables with the same name
+// we can use the exact same code
+// so there functions are just copy/pasted here
+//
+// Functions: gen_rand32, gen_rand64, fill_array32, fill_array64
+// init_gen_rand, init_by_array, gen_rand_all, gen_rand_array
+// So just copy/paste the function defintions from SFMT.c
 
 #if (!defined(HAVE_ALTIVEC)) && (!defined(HAVE_SSE2))
 /**
@@ -568,3 +733,5 @@ static void period_certification(void) {
 }; // end of class declaration;
 
 } // end of namespace
+
+#endif // SFMT_HPP

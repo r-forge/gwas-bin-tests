@@ -3,6 +3,11 @@ test_SFMT <- function(seed, nb=1) {
 					out=double(1), PACKAGE = "rngSFMT2")$out
 }
 
+
+SFMT_printID <- function() {
+	.C("sfmt_printid",PACKAGE = "rngSFMT2")
+}
+
 initSFMT <- function(seed=NULL, vseed=NULL)
 {
     useArray <- is.null(seed)
