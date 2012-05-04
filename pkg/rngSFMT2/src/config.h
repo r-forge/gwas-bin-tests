@@ -32,7 +32,7 @@
 #define HAVE_SSE 1
 
 /* Support SSE2 (Streaming SIMD Extensions 2) instructions */
-#define HAVE_SSE2 0
+#define HAVE_SSE2 1
 
 /* Support SSE3 (Streaming SIMD Extensions 3) instructions */
 #define HAVE_SSE3 1
@@ -68,7 +68,7 @@
 #define HAVE_UNISTD_H 1
 
 /* The Mersenne exponent */
-#define MEXP 11213
+#define MEXP 19937
 
 /* Define to the address where bug reports for this package should be sent. */
 #define PACKAGE_BUGREPORT "karl.forner@gmail.com"
