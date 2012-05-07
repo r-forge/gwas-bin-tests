@@ -2,10 +2,10 @@
 AC_INIT(rngSFMT2, 0.1, karl.forner@gmail.com)
 
 # safety check, probably useless that it is the right src directory
-AC_CONFIG_SRCDIR([src/config.h.in])
+AC_CONFIG_SRCDIR([inst/include/config.h.in])
 
 # will process src/config.h.in, created by autoheader to produce src/config.h
-AC_CONFIG_HEADER(src/config.h)
+AC_CONFIG_HEADER(inst/include/config.h)
 
 
 ### ** Precious variables.: setting MEXP
@@ -31,9 +31,18 @@ AC_ARG_ENABLE([altivec],
               [],
               [enable_altivec=yes])
 
-# Checks for programs.
-AC_PROG_CC
-AC_PROG_CXX
+# pick right environment
+: ${R_HOME=`R RHOME`}
+if test -z "${R_HOME}"; then
+   echo "could not determine R_HOME"
+   exit 1
+fi
+CC=`"${R_HOME}/bin/R" CMD config CC`
+CFLAGS=`"${R_HOME}/bin/R" CMD config CFLAGS`
+CPPFLAGS=`"${R_HOME}/bin/R" CMD config CPPFLAGS`
+AC_LANG(C++)
+#AC_PROG_CC
+#AC_PROG_CXX
 
 # not used for now
 #AC_CHECK_HEADERS([inttypes.h emmintrin.h altivec.h])

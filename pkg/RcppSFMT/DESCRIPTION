@@ -1,9 +1,11 @@
-Package: rngSFMT2
+Package: RcppSFMT
 Title: SFMT random number generator
-Version: 0.1-3
-Date: 2012-04-17
-Author: Petr Savicky <savicky@cs.cas.cz>, Karl Forner <karl.forner@gmail.com>
+Version: 0.1
+Date: 2012-05-07
+Author: Karl Forner <karl.forner@gmail.com>
 Maintainer: Karl Forner <karl.forner@gmail.com>
 Description: SFMT random number generator in C++ based on original implementation by Mutsuo Saito and Makoto Matsumoto
-License: BSD
-Packaged: 2012-04-16 18:28:14 UTC; savicky
+Depends: R (>= 2.13.0), Rcpp (>= 0.9.4)
+LinkingTo: Rcpp
+License: GPL (>= 3)
+
