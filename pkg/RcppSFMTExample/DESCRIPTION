@@ -1,0 +1,13 @@
+Package: rngVerify
+Title: Test of the C-level functions for random number generation provided by package rngSFMTOpenMP
+Version: 0.1-4
+Date: 2012-05-03
+Author: Petr Savicky <savicky@cs.cas.cz>
+Maintainer: Petr Savicky <savicky@cs.cas.cz>
+Description: The package rngSFMTOpenMP provides C-level functions, which allow to create
+  and use several copies of a random number generator suitable for a multithreaded
+  application using OpenMP. The package rngVerify demonstrates an example
+  of calling rngSFMTOpenMP from a C code, which uses OpenMP.
+Depends: rngSFMTOpenMP
+License: GPL-3
+Packaged: 2012-05-03 18:32:46 UTC; savicky

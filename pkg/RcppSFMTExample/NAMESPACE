@@ -1,0 +1,7 @@
+export(trySetRngParams, tryGetStreams)
+export(tryInterleavingSeq, tryInterleavingThr, trySumSeq, trySumThr)
+export(testPi)
+
+# C code
+import(rngSFMTOpenMP)
+
