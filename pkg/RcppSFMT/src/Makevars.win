@@ -1,0 +1,2 @@
+
+PKG_CPPFLAGS= -Iwinconfig -ISFMT-src -msse2
