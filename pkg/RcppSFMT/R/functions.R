@@ -1,11 +1,11 @@
 test_SFMT <- function(seed, nb=1) {
 	.C("sfmt_test", as.integer(seed),as.integer(nb),
-					out=double(1), PACKAGE = "rngSFMT2")$out
+					out=double(1), PACKAGE = "RcppSFMT")$out
 }
 
 
 SFMT_printID <- function() {
-	.C("sfmt_printid",PACKAGE = "rngSFMT2")
+	.Call("sfmt_printid",PACKAGE = "RcppSFMT")
 }
 
 initSFMT <- function(seed=NULL, vseed=NULL)
