@@ -1,2 +1,2 @@
+PKG_CPPFLAGS= -I../inst/include/winconfig -I../inst/include -I../inst/include/SFMT-src -I../include/winconfig -I../include -I..//include/SFMT-src  -msse2
 
-PKG_CPPFLAGS= -Iwinconfig -ISFMT-src -msse2

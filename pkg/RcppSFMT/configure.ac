@@ -81,5 +81,5 @@ fi
 
 # substitute vars  in src/Makevars.in ==> src/Makevars
 AC_CONFIG_FILES([src/Makevars])
-
+AC_CONFIG_FILES([R/inline.R])
 AC_OUTPUT

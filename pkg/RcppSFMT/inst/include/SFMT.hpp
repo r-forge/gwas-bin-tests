@@ -79,6 +79,15 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		SFMT(uint32_t seed) { init(); set_seed(seed); }
 
 		/**
+		 * init the rng with a two seeds
+		 * @see set_seed
+		 */
+		SFMT(uint32_t seed1, uint32_t seed2) {
+			init();
+			set_seeds(seed1, seed2);
+		}
+
+		/**
 		 * init the rng with an array of seeds
 		 * @see set_seeds
 		 */
@@ -96,6 +105,12 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		 */
 		uint32_t rand32() { return gen_rand32(); }
 
+		/**
+		 * generates a random number on (0,1)-real-interval
+		 *
+		 * N.B: call genrand_real3()
+		 */
+		double random() { return genrand_real3(); }
 
 		/**
 		 * set the seed. Can be used at any time to reset the seed
@@ -104,9 +119,26 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		 *
 		 * This function initializes the internal state array with a 32-bit
 		 * integer seed.
+		 *
 		 * @param seed a 32-bit integer used as the seed.
 		 */
 		void set_seed(uint32_t seed) { init_gen_rand(seed); }
+
+		/**
+		 * set the seeds. Can be used at any time to reset the seed
+		 *
+		 * Just a wrapper around the init_by_array() SFMT funbction:
+		 *
+		 * This function initializes the internal state array,
+		 * with two seeds
+		 *
+		 * @param seed1 a 32-bit integer used as the first seed.
+		 * @param seed2 a 32-bit integer used as the ssecond eed.
+		 */
+		 void set_seeds(uint32_t seed1, uint32_t seed2) {
+				uint32_t seeds[] = { seed1, seed2 };
+				set_seeds(seeds, 2);
+		 }
 
 		/**
 		 * set the seeds. Can be used at any time to reset the seed
@@ -118,7 +150,7 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		 * @param init_key the array of 32-bit integers, used as a seed.
 		 * @param key_length the length of init_key.
 		 */
-		void set_seeds(uint32_t *init_key, int key_length) { init_by_array(init_key, key_length);  }
+		 void set_seeds(uint32_t *init_key, int key_length) { init_by_array(init_key, key_length);  }
 
 		static std::string ID()  {
 			return get_idstring();
