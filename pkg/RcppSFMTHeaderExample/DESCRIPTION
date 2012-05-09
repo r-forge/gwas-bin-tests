@@ -5,5 +5,7 @@ Date: 2012-05-08
 Author: Karl Forner <karl.forner@gmail.com>
 Maintainer: Karl Forner <karl.forner@gmail.com>
 Description: Example use of the C++ API offered by RcppSFMT using only the inlined functions
+Depends: RcppSFMT
+LinkingTo: Rcpp
 License: GPL-3
 
