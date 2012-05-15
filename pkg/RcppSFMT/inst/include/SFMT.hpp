@@ -100,28 +100,53 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 
 	public: // ===== PUBLIC INTERFACE =====
 		/**
-		 * This function generates and returns 32-bit pseudorandom number.
+		 * alias for rand32() with a more explicit name
 		 *
 		 */
-		uint32_t rand32() { return gen_rand32(); }
+		uint32_t nextRandomInteger() { return rand32(); }
 
 		/**
+		 * alias for  genrand_real3() with a more explicit name
 		 *
 		 */
-		void rand32(vector<uint32_t>& v) {
-			int nb = v.size();
+		double nextRandomDouble() { return genrand_real3(); }
+
+
+
+		/**
+		 * generates and returns the next 32-bit pseudorandom number.
+		 *
+		 * It directly uses the original SFMT gen_rand32()
+		 *
+		 */
+
+		uint32_t rand32() { return gen_rand32(); }
+
+
+
+		/**
+		 * wrapper for original SFMT fill_array32()
+		 * fills a pre-sized vector with random 32 bits numbers
+		 * faster than filling the vector element by element
+		 *
+		 * Example
+		 * vector<uint32_t> v;
+		 * v.resize(1000);
+		 * rand32(v);
+		 *
+		 */
+		// REMOVED because we have to guarantee 16-bytes memory alignment
+		// to use the fill_array32 function
+		// TODO: add a configure check for the posix_memalign function
+		// and add a condition
+/*		void rand32(vector<uint32_t>& v) {
+			const int nb = v.size();
 			if ( nb == 0 )
 				return;
 			fill_array32(&v[0], nb);
-		}
+		}*/
 
 
-		/**
-		 * generates a random number on (0,1)-real-interval
-		 *
-		 * N.B: call genrand_real3()
-		 */
-		double random() { return genrand_real3(); }
 
 		/**
 		 * set the seed. Can be used at any time to reset the seed
@@ -172,8 +197,7 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 			 return MEXP;
 		 }
 
-
-		static std::string ID()  {
+		static string ID()  {
 			return get_idstring();
 		}
 

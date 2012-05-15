@@ -4,10 +4,6 @@ test_SFMT <- function(seed, nb=1) {
 }
 
 
-SFMT_printID <- function() {
-	.Call("sfmt_printid",PACKAGE = "RcppSFMT")
-}
-
 initSFMT <- function(seed=NULL, vseed=NULL)
 {
     useArray <- is.null(seed)

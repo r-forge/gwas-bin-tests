@@ -32,11 +32,11 @@ stopifnot(length(init_by_array) == 1000 )
 close(con)
 
 # generate random numbers
-rands <- RcppSFMT:::rand32(nb=1000, seed=1234)
+rands <- RcppSFMT:::rand32(nb=1000, seeds=1234)
 # check them
 stopifnot( all.equal(rands, init_gen_rand) )
 
 # use init_by_array, i.e. multiple seeds
 ini <-  c(0x1234, 0x5678, 0x9abc, 0xdef0)
-rands2 <- RcppSFMT:::rand32(nb=1000, seed=ini)
+rands2 <- RcppSFMT:::rand32(nb=1000, seeds=ini)
 stopifnot( all.equal(rands2, init_by_array) )
