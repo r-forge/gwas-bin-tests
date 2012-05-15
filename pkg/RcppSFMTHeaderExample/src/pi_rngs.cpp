@@ -5,12 +5,12 @@
 using namespace RNG;
 using namespace Rcpp;
 
-int process_chunk(SFMT* rng, const int nb) {
+int process_chunk(SFMT& rng, const int nb) {
 	int inside = 0;
 	double x = 0,y = 0;
 	for (int j = 0; j < nb; j++) {
-        x = rng->random();
-        y = rng->random();
+        x = rng.nextRandomDouble();
+        y = rng.nextRandomDouble();
         if (x*x + y*y <= 1)
         	++inside;
 	}
@@ -20,9 +20,7 @@ int process_chunk(SFMT* rng, const int nb) {
 
 double pi_rng_threaded(unsigned long n, const int nb_threads, int seed, int chunk_size )
 {
-	SFMT* rngs[nb_threads];
-    for (int i = 0; i < nb_threads; ++i)
-    	rngs[i] = new SFMT(seed, i);
+	SFMT rngs[nb_threads];
 
     omp_set_num_threads(nb_threads);
 
@@ -33,8 +31,8 @@ double pi_rng_threaded(unsigned long n, const int nb_threads, int seed, int chun
 
 #pragma omp parallel for schedule(dynamic)
     for (unsigned long  i=0; i < nb_chunks; i++) {
-    	SFMT* rng = rngs[ omp_get_thread_num() ];
-    	rng->set_seeds( seed, i );
+    	SFMT& rng = rngs[ omp_get_thread_num() ];
+    	rng.set_seeds( seed, i );
     	int chunks_inside = process_chunk(rng, chunk_size);
     	// update the shared inside
 #pragma omp atomic
@@ -42,13 +40,11 @@ double pi_rng_threaded(unsigned long n, const int nb_threads, int seed, int chun
     }
     // compute the left-over in the main thread, no need to synchronyze
     if ( remaining > 0 ) {
-    	SFMT* rng = rngs[ 0 ];
-    	rng->set_seeds( seed, nb_chunks );
+    	SFMT& rng = rngs[ 0 ];
+    	rng.set_seeds( seed, nb_chunks );
     	inside += process_chunk(rng, remaining);
     }
 
-    for (int i = 0; i < nb_threads; ++i)
-    	delete rngs[i];
 
     return (double)(inside)/(double)(n)*(double)(4);
 }
