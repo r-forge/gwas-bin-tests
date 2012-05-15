@@ -37,6 +37,27 @@ RcppExport SEXP W_fill_array32(SEXP _nb, SEXP _seed) {
 	return wrap(res);
 }
 
+RcppExport SEXP W_fill_array32_seeds(SEXP _nb, SEXP _seeds) {
+	IntegerVector seeds1(_seeds);
+
+	vector<uint32_t> seeds(seeds1.begin(), seeds1.end());
+
+	int nb = as<int>(_nb);
+	vector<uint32_t> v;
+	v.resize(nb);
+	RNG::SFMT s(&seeds[0], seeds.size());
+
+	s.rand32(v);
+
+	vector<double> res;
+	res.resize(nb);
+	for (int i = 0; i < nb; ++i)
+		res[i] = double(v[i]);
+
+
+	return wrap(res);
+}
+
 
 RcppExport SEXP  MERSENNE_EXPONENT() {
 	return wrap(RNG::SFMT::GET_MERSENNE_EXPONENT());

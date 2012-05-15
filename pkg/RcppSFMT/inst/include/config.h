@@ -1,5 +1,5 @@
-/* src/config.h.  Generated from config.h.in by configure.  */
-/* src/config.h.in.  Generated from configure.ac by autoheader.  */
+/* inst/include/config.h.  Generated from config.h.in by configure.  */
+/* inst/include/config.h.in.  Generated from configure.ac by autoheader.  */
 
 /* Define if building universal (internal helper macro) */
 /* #undef AC_APPLE_UNIVERSAL_BUILD */
@@ -10,14 +10,8 @@
 /* Support AVX (Advanced Vector Extensions) instructions */
 /* #undef HAVE_ALTIVEC */
 
-/* Define to 1 if you have the <altivec.h> header file. */
-/* #undef HAVE_ALTIVEC_H */
-
 /* Support AVX (Advanced Vector Extensions) instructions */
 /* #undef HAVE_AVX */
-
-/* Define to 1 if you have the <emmintrin.h> header file. */
-#define HAVE_EMMINTRIN_H 1
 
 /* Define to 1 if you have the <inttypes.h> header file. */
 #define HAVE_INTTYPES_H 1

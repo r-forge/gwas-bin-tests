@@ -27,6 +27,7 @@ uname -v = #1 SMP Thu Mar 17 11:45:06 UTC 2011
 /usr/bin/oslevel       = unknown
 /bin/universe          = unknown
 
+PATH: /sgcomp/aletheia/packages/x86_64/texlive-2011/bin/x86_64-linux/
 PATH: /sgcomp/aletheia/softs/x86_64/bin
 PATH: /sgcomp/aletheia/softs/linux32/bin
 PATH: /sgcomp/aletheia/softs/all/bin
@@ -55,77 +56,18 @@ PATH: /usr/lib/qt3/bin
 ## Core tests. ##
 ## ----------- ##
 
-configure:2107: checking for gcc
-configure:2123: found /sgcomp/aletheia/softs/x86_64/bin/gcc
-configure:2134: result: gcc
-configure:2363: checking for C compiler version
-configure:2372: gcc --version >&5
-gcc (GCC) 4.5.1
-Copyright (C) 2010 Free Software Foundation, Inc.
-This is free software; see the source for copying conditions.  There is NO
-warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
-
-configure:2383: $? = 0
-configure:2372: gcc -v >&5
-Using built-in specs.
-COLLECT_GCC=gcc
-COLLECT_LTO_WRAPPER=/x/x14/sgcomp/aletheia/packages/x86_64/gcc-4.5.1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/4.5.1/lto-wrapper
-Target: x86_64-unknown-linux-gnu
-Configured with: ../gcc-4.5.1/configure --prefix=/sgcomp/aletheia/packages/x86_64/gcc-4.5.1 --with-gmp=/sgcomp/aletheia/packages/x86_64/gmp-5.0.1/ --with-mpfr=/sgcomp/aletheia/packages/x86_64/mpfr-3.0.0/ --with-mpc=/sgcomp/aletheia/packages/x86_64/mpc-0.8.2/ --with-ppl=/sgcomp/aletheia/packages/x86_64/ppl-0.11/ --with-cloog=/sgcomp/aletheia/packages/x86_64/cloog-ppl-0.15.10/ --with-libelf=/sgcomp/aletheia/packages/x86_64/libelf-0.8.12/
-Thread model: posix
-gcc version 4.5.1 (GCC) 
-configure:2383: $? = 0
-configure:2372: gcc -V >&5
-gcc: '-V' option must have argument
-configure:2383: $? = 1
-configure:2372: gcc -qversion >&5
-gcc: unrecognized option '-qversion'
-gcc: no input files
-configure:2383: $? = 1
-configure:2403: checking whether the C compiler works
-configure:2425: gcc    conftest.c  >&5
-configure:2429: $? = 0
-configure:2477: result: yes
-configure:2480: checking for C compiler default output file name
-configure:2482: result: a.out
-configure:2488: checking for suffix of executables
-configure:2495: gcc -o conftest    conftest.c  >&5
-configure:2499: $? = 0
-configure:2521: result: 
-configure:2543: checking whether we are cross compiling
-configure:2551: gcc -o conftest    conftest.c  >&5
-configure:2555: $? = 0
-configure:2562: ./conftest
-configure:2566: $? = 0
-configure:2581: result: no
-configure:2586: checking for suffix of object files
-configure:2608: gcc -c   conftest.c >&5
-configure:2612: $? = 0
-configure:2633: result: o
-configure:2637: checking whether we are using the GNU C compiler
-configure:2656: gcc -c   conftest.c >&5
-configure:2656: $? = 0
-configure:2665: result: yes
-configure:2674: checking whether gcc accepts -g
-configure:2694: gcc -c -g  conftest.c >&5
-configure:2694: $? = 0
-configure:2735: result: yes
-configure:2752: checking for gcc option to accept ISO C89
-configure:2816: gcc  -c -g -O2  conftest.c >&5
-configure:2816: $? = 0
-configure:2829: result: none needed
-configure:2907: checking for g++
-configure:2923: found /sgcomp/aletheia/softs/x86_64/bin/g++
-configure:2934: result: g++
-configure:2961: checking for C++ compiler version
-configure:2970: g++ --version >&5
+configure:2089: checking for g++
+configure:2105: found /sgcomp/aletheia/softs/x86_64/bin/g++
+configure:2116: result: g++
+configure:2143: checking for C++ compiler version
+configure:2152: g++ --version >&5
 g++ (GCC) 4.5.1
 Copyright (C) 2010 Free Software Foundation, Inc.
 This is free software; see the source for copying conditions.  There is NO
 warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
 
-configure:2981: $? = 0
-configure:2970: g++ -v >&5
+configure:2163: $? = 0
+configure:2152: g++ -v >&5
 Using built-in specs.
 COLLECT_GCC=g++
 COLLECT_LTO_WRAPPER=/x/x14/sgcomp/aletheia/packages/x86_64/gcc-4.5.1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/4.5.1/lto-wrapper
@@ -133,29 +75,49 @@ Target: x86_64-unknown-linux-gnu
 Configured with: ../gcc-4.5.1/configure --prefix=/sgcomp/aletheia/packages/x86_64/gcc-4.5.1 --with-gmp=/sgcomp/aletheia/packages/x86_64/gmp-5.0.1/ --with-mpfr=/sgcomp/aletheia/packages/x86_64/mpfr-3.0.0/ --with-mpc=/sgcomp/aletheia/packages/x86_64/mpc-0.8.2/ --with-ppl=/sgcomp/aletheia/packages/x86_64/ppl-0.11/ --with-cloog=/sgcomp/aletheia/packages/x86_64/cloog-ppl-0.15.10/ --with-libelf=/sgcomp/aletheia/packages/x86_64/libelf-0.8.12/
 Thread model: posix
 gcc version 4.5.1 (GCC) 
-configure:2981: $? = 0
-configure:2970: g++ -V >&5
+configure:2163: $? = 0
+configure:2152: g++ -V >&5
 g++: '-V' option must have argument
-configure:2981: $? = 1
-configure:2970: g++ -qversion >&5
+configure:2163: $? = 1
+configure:2152: g++ -qversion >&5
 g++: unrecognized option '-qversion'
 g++: no input files
-configure:2981: $? = 1
-configure:2985: checking whether we are using the GNU C++ compiler
-configure:3004: g++ -c   conftest.cpp >&5
-configure:3004: $? = 0
-configure:3013: result: yes
-configure:3022: checking whether g++ accepts -g
-configure:3042: g++ -c -g  conftest.cpp >&5
-configure:3042: $? = 0
-configure:3083: result: yes
-configure:3114: checking how to run the C preprocessor
-configure:3145: gcc -E  conftest.c
-configure:3145: $? = 0
-configure:3159: gcc -E  conftest.c
-conftest.c:10:28: fatal error: ac_nonexistent.h: No such file or directory
+configure:2163: $? = 1
+configure:2183: checking whether the C++ compiler works
+configure:2205: g++  -I/usr/local/include  conftest.cpp  >&5
+configure:2209: $? = 0
+configure:2257: result: yes
+configure:2260: checking for C++ compiler default output file name
+configure:2262: result: a.out
+configure:2268: checking for suffix of executables
+configure:2275: g++ -o conftest  -I/usr/local/include  conftest.cpp  >&5
+configure:2279: $? = 0
+configure:2301: result: 
+configure:2323: checking whether we are cross compiling
+configure:2331: g++ -o conftest  -I/usr/local/include  conftest.cpp  >&5
+configure:2335: $? = 0
+configure:2342: ./conftest
+configure:2346: $? = 0
+configure:2361: result: no
+configure:2366: checking for suffix of object files
+configure:2388: g++ -c  -I/usr/local/include conftest.cpp >&5
+configure:2392: $? = 0
+configure:2413: result: o
+configure:2417: checking whether we are using the GNU C++ compiler
+configure:2436: g++ -c  -I/usr/local/include conftest.cpp >&5
+configure:2436: $? = 0
+configure:2445: result: yes
+configure:2454: checking whether g++ accepts -g
+configure:2474: g++ -c -g -I/usr/local/include conftest.cpp >&5
+configure:2474: $? = 0
+configure:2515: result: yes
+configure:2544: checking how to run the C++ preprocessor
+configure:2571: g++ -E -I/usr/local/include conftest.cpp
+configure:2571: $? = 0
+configure:2585: g++ -E -I/usr/local/include conftest.cpp
+conftest.cpp:10:28: fatal error: ac_nonexistent.h: No such file or directory
 compilation terminated.
-configure:3159: $? = 1
+configure:2585: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "rngSFMT2"
@@ -167,13 +129,13 @@ configure: failed program was:
 | #define MEXP 19937
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:3184: result: gcc -E
-configure:3204: gcc -E  conftest.c
-configure:3204: $? = 0
-configure:3218: gcc -E  conftest.c
-conftest.c:10:28: fatal error: ac_nonexistent.h: No such file or directory
+configure:2610: result: g++ -E
+configure:2630: g++ -E -I/usr/local/include conftest.cpp
+configure:2630: $? = 0
+configure:2644: g++ -E -I/usr/local/include conftest.cpp
+conftest.cpp:10:28: fatal error: ac_nonexistent.h: No such file or directory
 compilation terminated.
-configure:3218: $? = 1
+configure:2644: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "rngSFMT2"
@@ -185,71 +147,58 @@ configure: failed program was:
 | #define MEXP 19937
 | /* end confdefs.h.  */
 | #include <ac_nonexistent.h>
-configure:3247: checking for grep that handles long lines and -e
-configure:3305: result: /usr/bin/grep
-configure:3310: checking for egrep
-configure:3372: result: /usr/bin/grep -E
-configure:3377: checking for ANSI C header files
-configure:3397: gcc -c -g -O2  conftest.c >&5
-configure:3397: $? = 0
-configure:3470: gcc -o conftest -g -O2   conftest.c  >&5
-configure:3470: $? = 0
-configure:3470: ./conftest
-configure:3470: $? = 0
-configure:3481: result: yes
-configure:3494: checking for sys/types.h
-configure:3494: gcc -c -g -O2  conftest.c >&5
-configure:3494: $? = 0
-configure:3494: result: yes
-configure:3494: checking for sys/stat.h
-configure:3494: gcc -c -g -O2  conftest.c >&5
-configure:3494: $? = 0
-configure:3494: result: yes
-configure:3494: checking for stdlib.h
-configure:3494: gcc -c -g -O2  conftest.c >&5
-configure:3494: $? = 0
-configure:3494: result: yes
-configure:3494: checking for string.h
-configure:3494: gcc -c -g -O2  conftest.c >&5
-configure:3494: $? = 0
-configure:3494: result: yes
-configure:3494: checking for memory.h
-configure:3494: gcc -c -g -O2  conftest.c >&5
-configure:3494: $? = 0
-configure:3494: result: yes
-configure:3494: checking for strings.h
-configure:3494: gcc -c -g -O2  conftest.c >&5
-configure:3494: $? = 0
-configure:3494: result: yes
-configure:3494: checking for inttypes.h
-configure:3494: gcc -c -g -O2  conftest.c >&5
-configure:3494: $? = 0
-configure:3494: result: yes
-configure:3494: checking for stdint.h
-configure:3494: gcc -c -g -O2  conftest.c >&5
-configure:3494: $? = 0
-configure:3494: result: yes
-configure:3494: checking for unistd.h
-configure:3494: gcc -c -g -O2  conftest.c >&5
-configure:3494: $? = 0
-configure:3494: result: yes
-configure:3509: checking for inttypes.h
-configure:3509: result: yes
-configure:3509: checking emmintrin.h usability
-configure:3509: gcc -c -g -O2  conftest.c >&5
-configure:3509: $? = 0
-configure:3509: result: yes
-configure:3509: checking emmintrin.h presence
-configure:3509: gcc -E  conftest.c
-configure:3509: $? = 0
-configure:3509: result: yes
-configure:3509: checking for emmintrin.h
-configure:3509: result: yes
-configure:3509: checking altivec.h usability
-configure:3509: gcc -c -g -O2  conftest.c >&5
-conftest.c:55:21: fatal error: altivec.h: No such file or directory
-compilation terminated.
-configure:3509: $? = 1
+configure:2673: checking for grep that handles long lines and -e
+configure:2731: result: /usr/bin/grep
+configure:2736: checking for egrep
+configure:2798: result: /usr/bin/grep -E
+configure:2803: checking for ANSI C header files
+configure:2823: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2823: $? = 0
+configure:2896: g++ -o conftest -g -O2 -I/usr/local/include  conftest.cpp  >&5
+configure:2896: $? = 0
+configure:2896: ./conftest
+configure:2896: $? = 0
+configure:2907: result: yes
+configure:2920: checking for sys/types.h
+configure:2920: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2920: $? = 0
+configure:2920: result: yes
+configure:2920: checking for sys/stat.h
+configure:2920: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2920: $? = 0
+configure:2920: result: yes
+configure:2920: checking for stdlib.h
+configure:2920: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2920: $? = 0
+configure:2920: result: yes
+configure:2920: checking for string.h
+configure:2920: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2920: $? = 0
+configure:2920: result: yes
+configure:2920: checking for memory.h
+configure:2920: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2920: $? = 0
+configure:2920: result: yes
+configure:2920: checking for strings.h
+configure:2920: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2920: $? = 0
+configure:2920: result: yes
+configure:2920: checking for inttypes.h
+configure:2920: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2920: $? = 0
+configure:2920: result: yes
+configure:2920: checking for stdint.h
+configure:2920: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2920: $? = 0
+configure:2920: result: yes
+configure:2920: checking for unistd.h
+configure:2920: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2920: $? = 0
+configure:2920: result: yes
+configure:2932: checking whether byte ordering is bigendian
+configure:2947: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+conftest.cpp:21:9: error: expected unqualified-id before 'not' token
+configure:2947: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "rngSFMT2"
@@ -269,114 +218,19 @@ configure: failed program was:
 | #define HAVE_INTTYPES_H 1
 | #define HAVE_STDINT_H 1
 | #define HAVE_UNISTD_H 1
-| #define HAVE_INTTYPES_H 1
-| #define HAVE_EMMINTRIN_H 1
-| /* end confdefs.h.  */
-| #include <stdio.h>
-| #ifdef HAVE_SYS_TYPES_H
-| # include <sys/types.h>
-| #endif
-| #ifdef HAVE_SYS_STAT_H
-| # include <sys/stat.h>
-| #endif
-| #ifdef STDC_HEADERS
-| # include <stdlib.h>
-| # include <stddef.h>
-| #else
-| # ifdef HAVE_STDLIB_H
-| #  include <stdlib.h>
-| # endif
-| #endif
-| #ifdef HAVE_STRING_H
-| # if !defined STDC_HEADERS && defined HAVE_MEMORY_H
-| #  include <memory.h>
-| # endif
-| # include <string.h>
-| #endif
-| #ifdef HAVE_STRINGS_H
-| # include <strings.h>
-| #endif
-| #ifdef HAVE_INTTYPES_H
-| # include <inttypes.h>
-| #endif
-| #ifdef HAVE_STDINT_H
-| # include <stdint.h>
-| #endif
-| #ifdef HAVE_UNISTD_H
-| # include <unistd.h>
-| #endif
-| #include <altivec.h>
-configure:3509: result: no
-configure:3509: checking altivec.h presence
-configure:3509: gcc -E  conftest.c
-conftest.c:22:21: fatal error: altivec.h: No such file or directory
-compilation terminated.
-configure:3509: $? = 1
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "rngSFMT2"
-| #define PACKAGE_TARNAME "rngsfmt2"
-| #define PACKAGE_VERSION "0.1"
-| #define PACKAGE_STRING "rngSFMT2 0.1"
-| #define PACKAGE_BUGREPORT "karl.forner@gmail.com"
-| #define PACKAGE_URL ""
-| #define MEXP 19937
-| #define STDC_HEADERS 1
-| #define HAVE_SYS_TYPES_H 1
-| #define HAVE_SYS_STAT_H 1
-| #define HAVE_STDLIB_H 1
-| #define HAVE_STRING_H 1
-| #define HAVE_MEMORY_H 1
-| #define HAVE_STRINGS_H 1
-| #define HAVE_INTTYPES_H 1
-| #define HAVE_STDINT_H 1
-| #define HAVE_UNISTD_H 1
-| #define HAVE_INTTYPES_H 1
-| #define HAVE_EMMINTRIN_H 1
-| /* end confdefs.h.  */
-| #include <altivec.h>
-configure:3509: result: no
-configure:3509: checking for altivec.h
-configure:3509: result: no
-configure:3521: checking whether byte ordering is bigendian
-configure:3536: gcc -c -g -O2  conftest.c >&5
-conftest.c:23:13: error: expected '=', ',', ';', 'asm' or '__attribute__' before 'a'
-configure:3536: $? = 1
-configure: failed program was:
-| /* confdefs.h */
-| #define PACKAGE_NAME "rngSFMT2"
-| #define PACKAGE_TARNAME "rngsfmt2"
-| #define PACKAGE_VERSION "0.1"
-| #define PACKAGE_STRING "rngSFMT2 0.1"
-| #define PACKAGE_BUGREPORT "karl.forner@gmail.com"
-| #define PACKAGE_URL ""
-| #define MEXP 19937
-| #define STDC_HEADERS 1
-| #define HAVE_SYS_TYPES_H 1
-| #define HAVE_SYS_STAT_H 1
-| #define HAVE_STDLIB_H 1
-| #define HAVE_STRING_H 1
-| #define HAVE_MEMORY_H 1
-| #define HAVE_STRINGS_H 1
-| #define HAVE_INTTYPES_H 1
-| #define HAVE_STDINT_H 1
-| #define HAVE_UNISTD_H 1
-| #define HAVE_INTTYPES_H 1
-| #define HAVE_EMMINTRIN_H 1
 | /* end confdefs.h.  */
 | #ifndef __APPLE_CC__
 | 	       not a universal capable compiler
 | 	     #endif
 | 	     typedef int dummy;
 | 
-configure:3581: gcc -c -g -O2  conftest.c >&5
-configure:3581: $? = 0
-configure:3599: gcc -c -g -O2  conftest.c >&5
-conftest.c: In function 'main':
-conftest.c:29:4: error: 'not' undeclared (first use in this function)
-conftest.c:29:4: note: each undeclared identifier is reported only once for each function it appears in
-conftest.c:29:8: error: expected ';' before 'big'
-configure:3599: $? = 1
+configure:2992: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+configure:2992: $? = 0
+configure:3010: g++ -c -g -O2 -I/usr/local/include conftest.cpp >&5
+conftest.cpp: In function 'int main()':
+conftest.cpp:27:8: error: 'big' was not declared in this scope
+conftest.cpp:27:12: error: expected ';' before 'endian'
+configure:3010: $? = 1
 configure: failed program was:
 | /* confdefs.h */
 | #define PACKAGE_NAME "rngSFMT2"
@@ -396,8 +250,6 @@ configure: failed program was:
 | #define HAVE_INTTYPES_H 1
 | #define HAVE_STDINT_H 1
 | #define HAVE_UNISTD_H 1
-| #define HAVE_INTTYPES_H 1
-| #define HAVE_EMMINTRIN_H 1
 | /* end confdefs.h.  */
 | #include <sys/types.h>
 | 		#include <sys/param.h>
@@ -412,12 +264,50 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:3727: result: no
-configure:3915: checking for x86 cpuid  output
-configure:3944: gcc -o conftest -g -O2   conftest.c  >&5
+configure:3138: result: no
+configure:3367: checking for gcc
+configure:3394: result: gcc -std=gnu99
+configure:3623: checking for C compiler version
+configure:3632: gcc -std=gnu99 --version >&5
+gcc (GCC) 4.5.1
+Copyright (C) 2010 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
+configure:3643: $? = 0
+configure:3632: gcc -std=gnu99 -v >&5
+Using built-in specs.
+COLLECT_GCC=gcc
+COLLECT_LTO_WRAPPER=/x/x14/sgcomp/aletheia/packages/x86_64/gcc-4.5.1/bin/../libexec/gcc/x86_64-unknown-linux-gnu/4.5.1/lto-wrapper
+Target: x86_64-unknown-linux-gnu
+Configured with: ../gcc-4.5.1/configure --prefix=/sgcomp/aletheia/packages/x86_64/gcc-4.5.1 --with-gmp=/sgcomp/aletheia/packages/x86_64/gmp-5.0.1/ --with-mpfr=/sgcomp/aletheia/packages/x86_64/mpfr-3.0.0/ --with-mpc=/sgcomp/aletheia/packages/x86_64/mpc-0.8.2/ --with-ppl=/sgcomp/aletheia/packages/x86_64/ppl-0.11/ --with-cloog=/sgcomp/aletheia/packages/x86_64/cloog-ppl-0.15.10/ --with-libelf=/sgcomp/aletheia/packages/x86_64/libelf-0.8.12/
+Thread model: posix
+gcc version 4.5.1 (GCC) 
+configure:3643: $? = 0
+configure:3632: gcc -std=gnu99 -V >&5
+gcc: '-V' must come at the start of the command line
+configure:3643: $? = 1
+configure:3632: gcc -std=gnu99 -qversion >&5
+gcc: unrecognized option '-qversion'
+gcc: no input files
+configure:3643: $? = 1
+configure:3647: checking whether we are using the GNU C compiler
+configure:3666: gcc -std=gnu99 -c -g -O2 -I/usr/local/include conftest.c >&5
+configure:3666: $? = 0
+configure:3675: result: yes
+configure:3684: checking whether gcc -std=gnu99 accepts -g
+configure:3704: gcc -std=gnu99 -c -g -I/usr/local/include conftest.c >&5
+configure:3704: $? = 0
+configure:3745: result: yes
+configure:3762: checking for gcc -std=gnu99 option to accept ISO C89
+configure:3826: gcc -std=gnu99  -c -g -O2 -I/usr/local/include conftest.c >&5
+configure:3826: $? = 0
+configure:3839: result: none needed
+configure:3867: checking for x86 cpuid  output
+configure:3896: gcc -std=gnu99 -o conftest -g -O2 -I/usr/local/include  conftest.c  >&5
 conftest.c: In function 'main':
-conftest.c:27:15: error: expected expression before ',' token
-configure:3944: $? = 1
+conftest.c:25:15: error: expected expression before ',' token
+configure:3896: $? = 1
 configure: program exited with status 1
 configure: failed program was:
 | /* confdefs.h */
@@ -438,8 +328,6 @@ configure: failed program was:
 | #define HAVE_INTTYPES_H 1
 | #define HAVE_STDINT_H 1
 | #define HAVE_UNISTD_H 1
-| #define HAVE_INTTYPES_H 1
-| #define HAVE_EMMINTRIN_H 1
 | /* end confdefs.h.  */
 | #include <stdio.h>
 | int
@@ -459,58 +347,58 @@ configure: failed program was:
 |   ;
 |   return 0;
 | }
-configure:3954: result: unknown
-configure:3973: checking for x86 cpuid 0x00000001 output
-configure:4002: gcc -o conftest -g -O2   conftest.c  >&5
-configure:4002: $? = 0
-configure:4002: ./conftest
-configure:4002: $? = 0
-configure:4012: result: 106a5:2100800:9ce3bd:bfebfbff
-configure:4024: checking whether mmx is supported
-configure:4036: result: yes
-configure:4039: checking whether sse is supported
-configure:4051: result: yes
-configure:4054: checking whether sse2 is supported
-configure:4066: result: yes
-configure:4069: checking whether sse3 is supported
-configure:4081: result: yes
-configure:4084: checking whether ssse3 is supported
-configure:4096: result: yes
-configure:4099: checking whether sse4.1 is supported
-configure:4111: result: yes
-configure:4114: checking whether sse4.2 is supported
-configure:4126: result: yes
-configure:4129: checking whether avx is supported
-configure:4141: result: no
-configure:4148: checking whether C compiler accepts -mmmx
-configure:4167: gcc -c -g -O2  -mmmx  conftest.c >&5
-configure:4167: $? = 0
-configure:4175: result: yes
-configure:4189: checking whether C compiler accepts -msse
-configure:4208: gcc -c -g -O2  -msse  conftest.c >&5
-configure:4208: $? = 0
-configure:4216: result: yes
-configure:4230: checking whether C compiler accepts -msse2
-configure:4249: gcc -c -g -O2  -msse2  conftest.c >&5
-configure:4249: $? = 0
-configure:4257: result: yes
-configure:4271: checking whether C compiler accepts -msse3
-configure:4290: gcc -c -g -O2  -msse3  conftest.c >&5
-configure:4290: $? = 0
-configure:4298: result: yes
-configure:4312: checking whether C compiler accepts -mssse3
-configure:4331: gcc -c -g -O2  -mssse3  conftest.c >&5
-configure:4331: $? = 0
-configure:4339: result: yes
-configure:4353: checking whether C compiler accepts -msse4.1
-configure:4372: gcc -c -g -O2  -msse4.1  conftest.c >&5
-configure:4372: $? = 0
-configure:4380: result: yes
-configure:4394: checking whether C compiler accepts -msse4.2
-configure:4413: gcc -c -g -O2  -msse4.2  conftest.c >&5
-configure:4413: $? = 0
-configure:4421: result: yes
-configure:4618: creating ./config.status
+configure:3906: result: unknown
+configure:3925: checking for x86 cpuid 0x00000001 output
+configure:3954: gcc -std=gnu99 -o conftest -g -O2 -I/usr/local/include  conftest.c  >&5
+configure:3954: $? = 0
+configure:3954: ./conftest
+configure:3954: $? = 0
+configure:3964: result: 106a5:100800:9ce3bd:bfebfbff
+configure:3976: checking whether mmx is supported
+configure:3988: result: yes
+configure:3991: checking whether sse is supported
+configure:4003: result: yes
+configure:4006: checking whether sse2 is supported
+configure:4018: result: yes
+configure:4021: checking whether sse3 is supported
+configure:4033: result: yes
+configure:4036: checking whether ssse3 is supported
+configure:4048: result: yes
+configure:4051: checking whether sse4.1 is supported
+configure:4063: result: yes
+configure:4066: checking whether sse4.2 is supported
+configure:4078: result: yes
+configure:4081: checking whether avx is supported
+configure:4093: result: no
+configure:4100: checking whether C++ compiler accepts -mmmx
+configure:4119: g++ -c -g -O2  -mmmx -I/usr/local/include conftest.cpp >&5
+configure:4119: $? = 0
+configure:4127: result: yes
+configure:4141: checking whether C++ compiler accepts -msse
+configure:4160: g++ -c -g -O2  -msse -I/usr/local/include conftest.cpp >&5
+configure:4160: $? = 0
+configure:4168: result: yes
+configure:4182: checking whether C++ compiler accepts -msse2
+configure:4201: g++ -c -g -O2  -msse2 -I/usr/local/include conftest.cpp >&5
+configure:4201: $? = 0
+configure:4209: result: yes
+configure:4223: checking whether C++ compiler accepts -msse3
+configure:4242: g++ -c -g -O2  -msse3 -I/usr/local/include conftest.cpp >&5
+configure:4242: $? = 0
+configure:4250: result: yes
+configure:4264: checking whether C++ compiler accepts -mssse3
+configure:4283: g++ -c -g -O2  -mssse3 -I/usr/local/include conftest.cpp >&5
+configure:4283: $? = 0
+configure:4291: result: yes
+configure:4305: checking whether C++ compiler accepts -msse4.1
+configure:4324: g++ -c -g -O2  -msse4.1 -I/usr/local/include conftest.cpp >&5
+configure:4324: $? = 0
+configure:4332: result: yes
+configure:4346: checking whether C++ compiler accepts -msse4.2
+configure:4365: g++ -c -g -O2  -msse4.2 -I/usr/local/include conftest.cpp >&5
+configure:4365: $? = 0
+configure:4373: result: yes
+configure:4571: creating ./config.status
 
 ## ---------------------- ##
 ## Running config.status. ##
@@ -527,8 +415,9 @@ generated by GNU Autoconf 2.68.  Invocation command line was
 
 on chge1x0039
 
-config.status:824: creating src/Makevars
-config.status:824: creating src/config.h
+config.status:823: creating src/Makevars
+config.status:823: creating R/inline.R
+config.status:823: creating inst/include/config.h
 
 ## ---------------- ##
 ## Cache variables. ##
@@ -545,8 +434,8 @@ ac_cv_env_CFLAGS_set=
 ac_cv_env_CFLAGS_value=
 ac_cv_env_CPPFLAGS_set=
 ac_cv_env_CPPFLAGS_value=
-ac_cv_env_CPP_set=
-ac_cv_env_CPP_value=
+ac_cv_env_CXXCPP_set=
+ac_cv_env_CXXCPP_value=
 ac_cv_env_CXXFLAGS_set=
 ac_cv_env_CXXFLAGS_value=
 ac_cv_env_CXX_set=
@@ -563,8 +452,6 @@ ac_cv_env_host_alias_set=
 ac_cv_env_host_alias_value=
 ac_cv_env_target_alias_set=
 ac_cv_env_target_alias_value=
-ac_cv_header_altivec_h=no
-ac_cv_header_emmintrin_h=yes
 ac_cv_header_inttypes_h=yes
 ac_cv_header_memory_h=yes
 ac_cv_header_stdc=yes
@@ -578,20 +465,20 @@ ac_cv_header_unistd_h=yes
 ac_cv_objext=o
 ac_cv_path_EGREP='/usr/bin/grep -E'
 ac_cv_path_GREP=/usr/bin/grep
-ac_cv_prog_CPP='gcc -E'
-ac_cv_prog_ac_ct_CC=gcc
+ac_cv_prog_CXXCPP='g++ -E'
+ac_cv_prog_ac_ct_CC='gcc -std=gnu99'
 ac_cv_prog_ac_ct_CXX=g++
 ac_cv_prog_cc_c89=
 ac_cv_prog_cc_g=yes
 ac_cv_prog_cxx_g=yes
-ax_cv_check_cflags___mmmx=yes
-ax_cv_check_cflags___msse2=yes
-ax_cv_check_cflags___msse3=yes
-ax_cv_check_cflags___msse4_1=yes
-ax_cv_check_cflags___msse4_2=yes
-ax_cv_check_cflags___msse=yes
-ax_cv_check_cflags___mssse3=yes
-ax_cv_gcc_x86_cpuid_0x00000001=106a5:2100800:9ce3bd:bfebfbff
+ax_cv_check_cxxflags___mmmx=yes
+ax_cv_check_cxxflags___msse2=yes
+ax_cv_check_cxxflags___msse3=yes
+ax_cv_check_cxxflags___msse4_1=yes
+ax_cv_check_cxxflags___msse4_2=yes
+ax_cv_check_cxxflags___msse=yes
+ax_cv_check_cxxflags___mssse3=yes
+ax_cv_gcc_x86_cpuid_0x00000001=106a5:100800:9ce3bd:bfebfbff
 ax_cv_gcc_x86_cpuid_=unknown
 ax_cv_have_avx_ext=no
 ax_cv_have_mmx_ext=yes
@@ -606,11 +493,11 @@ ax_cv_have_ssse3_ext=yes
 ## Output variables. ##
 ## ----------------- ##
 
-CC='gcc'
+CC='gcc -std=gnu99'
 CFLAGS='-g -O2'
-CPP='gcc -E'
-CPPFLAGS=''
+CPPFLAGS='-I/usr/local/include'
 CXX='g++'
+CXXCPP='g++ -E'
 CXXFLAGS='-g -O2'
 DEFS='-DHAVE_CONFIG_H'
 ECHO_C=''
@@ -634,7 +521,7 @@ PACKAGE_VERSION='0.1'
 PATH_SEPARATOR=':'
 SHELL='/bin/sh'
 SIMD_FLAGS=' -mmmx -msse -msse2 -msse3 -mssse3 -msse4.1 -msse4.2'
-ac_ct_CC='gcc'
+ac_ct_CC='gcc -std=gnu99'
 ac_ct_CXX='g++'
 bindir='${exec_prefix}/bin'
 build_alias=''
@@ -684,8 +571,6 @@ target_alias=''
 #define HAVE_INTTYPES_H 1
 #define HAVE_STDINT_H 1
 #define HAVE_UNISTD_H 1
-#define HAVE_INTTYPES_H 1
-#define HAVE_EMMINTRIN_H 1
 #define HAVE_MMX 1
 #define HAVE_SSE 1
 #define HAVE_SSE2 1
