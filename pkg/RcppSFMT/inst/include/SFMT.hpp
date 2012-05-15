@@ -29,9 +29,9 @@ extern "C" {
 }
 
 #include <string>
-
+#include <vector>
 namespace RNG {
-
+using namespace std;
 
 class SFMT {
 private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
@@ -106,6 +106,17 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		uint32_t rand32() { return gen_rand32(); }
 
 		/**
+		 *
+		 */
+		void rand32(vector<uint32_t>& v) {
+			int nb = v.size();
+			if ( nb == 0 )
+				return;
+			fill_array32(&v[0], nb);
+		}
+
+
+		/**
 		 * generates a random number on (0,1)-real-interval
 		 *
 		 * N.B: call genrand_real3()
@@ -151,6 +162,16 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		 * @param key_length the length of init_key.
 		 */
 		 void set_seeds(uint32_t *init_key, int key_length) { init_by_array(init_key, key_length);  }
+
+		 /**
+		  * get the Mersenne Exponent used by this implementation
+		  *
+		  * @return the exponent, as an integer
+		  */
+		 static int GET_MERSENNE_EXPONENT() {
+			 return MEXP;
+		 }
+
 
 		static std::string ID()  {
 			return get_idstring();
@@ -437,7 +458,23 @@ r2 = r;
 
 #endif
 
-// WRAP INSTRUCTIONS 5:
+
+ // WRAP INSTRUCTIONS 5:
+ // copy/paste some required functions from SFMT.h: genrand_real3 and to_real3
+ /** generates a random number on (0,1)-real-interval */
+ inline static double to_real3(uint32_t v)
+ {
+     return (((double)v) + 0.5)*(1.0/4294967296.0);
+     /* divided by 2^32 */
+ }
+
+ /** generates a random number on (0,1)-real-interval */
+ inline static double genrand_real3(void)
+ {
+     return to_real3(gen_rand32());
+ }
+
+// WRAP INSTRUCTIONS 6:
 // these are the function that use state global variables
 // because we have instance variables with the same name
 // we can use the exact same code
