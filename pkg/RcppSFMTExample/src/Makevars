@@ -1,2 +1,0 @@
-PKG_CPPFLAGS=$(SHLIB_OPENMP_CFLAGS) -ffloat-store
-PKG_LIBS = `$(R_HOME)/bin/Rscript -e "Rcpp:::LdFlags()"`
