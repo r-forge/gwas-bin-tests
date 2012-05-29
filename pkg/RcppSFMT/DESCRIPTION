@@ -5,7 +5,8 @@ Date: 2012-05-07
 Author: Karl Forner <karl.forner@gmail.com>
 Maintainer: Karl Forner <karl.forner@gmail.com>
 Description: SFMT random number generator in C++ based on original implementation by Mutsuo Saito and Makoto Matsumoto
-Depends: R (>= 2.13.0), Rcpp (>= 0.9.4)
+Depends: R (>= 2.13.0), Rcpp (>= 0.9.4), methods
 LinkingTo: Rcpp
+RcppModules: sfmt
 License: GPL (>= 3)
 

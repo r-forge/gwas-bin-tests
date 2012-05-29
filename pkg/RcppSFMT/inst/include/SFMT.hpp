@@ -66,11 +66,12 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 
 	public: // ========== LIFECYCLE ======================
 		/**
-		 * init the rng using SFMT C function gen_rand_all() :
-		 * This function fills the internal state array with pseudorandom
-		 * integers.
+		 * init the rng using R base RNG current state
+		 *
+		 * See <set_seeds_from_R>
+		 *
 		 */
-		SFMT() { init(); gen_rand_all(); }
+		SFMT() { init(); set_seeds_from_R(); }
 
 		/**
 		 * init the rng with a seed
@@ -93,10 +94,10 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		 */
 		SFMT(uint32_t *init_key, int key_length) {
 			init();
-			set_seeds(init_key, key_length);
+			set_seed_array(init_key, key_length);
 		}
 
-
+		//~SFMT() {  Rprintf("In SFMT destructor\n"); }
 
 	public: // ===== PUBLIC INTERFACE =====
 		/**
@@ -110,7 +111,6 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		 *
 		 */
 		double nextRandomDouble() { return genrand_real3(); }
-
 
 
 		/**
@@ -147,6 +147,25 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		}*/
 
 
+		/**
+		 * set the seeds of the RNG using the current state
+		 * of R base RNG
+		 *
+		 * This code has been borrowed from Petr Savicky too.
+		 *
+		 * @param nb_seeds the number of seeds to use (generated from R RNG)
+		 */
+		void set_seeds_from_R(const int nb_seeds = 4) {
+		    uint32_t seeds[nb_seeds];
+		    // fill seeds  with random numbers from R base generator
+		    GetRNGstate(); // must be called prior to unif_rand
+		    for (int i=0; i < nb_seeds; i++) {
+		    	seeds[i] = (uint32_t) floor(4294967296.0*unif_rand());
+		    }
+		    PutRNGstate(); // must be called after last call to unif_rand
+
+		    set_seed_array(&seeds[0], nb_seeds);
+		}
 
 		/**
 		 * set the seed. Can be used at any time to reset the seed
@@ -173,7 +192,7 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		 */
 		 void set_seeds(uint32_t seed1, uint32_t seed2) {
 				uint32_t seeds[] = { seed1, seed2 };
-				set_seeds(seeds, 2);
+				set_seed_array(seeds, 2);
 		 }
 
 		/**
@@ -186,7 +205,7 @@ private: // ========== DECLARATION OF INSTANCE STATE VARIABLES =========
 		 * @param init_key the array of 32-bit integers, used as a seed.
 		 * @param key_length the length of init_key.
 		 */
-		 void set_seeds(uint32_t *init_key, int key_length) { init_by_array(init_key, key_length);  }
+		 void set_seed_array(uint32_t *init_key, int key_length) { init_by_array(init_key, key_length);  }
 
 		 /**
 		  * get the Mersenne Exponent used by this implementation

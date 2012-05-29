@@ -1,1 +1,4 @@
 useDynLib(RcppSFMT)
+import(Rcpp)
+#importClassesFrom( Rcpp, "C++Object", "C++Class", "Module" )
+export(SFMT)

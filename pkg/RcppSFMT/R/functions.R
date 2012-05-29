@@ -1,7 +1,3 @@
-test_SFMT <- function(seed, nb=1) {
-	.C("sfmt_test", as.integer(seed),as.integer(nb),
-					out=double(1), PACKAGE = "RcppSFMT")$out
-}
 
 
 initSFMT <- function(seed=NULL, vseed=NULL)

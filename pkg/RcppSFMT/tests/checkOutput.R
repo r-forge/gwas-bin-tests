@@ -1,8 +1,8 @@
 #library(RcppSFMT, lib.loc="../tmpsse/")
 library(RcppSFMT)
 
-mexp <- RcppSFMT:::MERSENNE_EXPONENT()
-cat("MEXP=", mexp, "\n")
+mexp <- new(SFMT)$get_mersenne_exponent()
+cat("SFMT MERSENNE EXPONENT =", mexp, "\n")
 file <- paste("SFMT.", mexp, ".out.txt", sep="")
 path <- system.file("include", "SFMT-src", file, package="RcppSFMT")
 
@@ -32,11 +32,13 @@ stopifnot(length(init_by_array) == 1000 )
 close(con)
 
 # generate random numbers
-rands <- RcppSFMT:::rand32(nb=1000, seeds=1234)
+rng <- new(SFMT, 1234)
+rands <- rng$unsignedRandomIntegers(1000)
 # check them
 stopifnot( all.equal(rands, init_gen_rand) )
 
 # use init_by_array, i.e. multiple seeds
 ini <-  c(0x1234, 0x5678, 0x9abc, 0xdef0)
-rands2 <- RcppSFMT:::rand32(nb=1000, seeds=ini)
+rng$set_seed_array(ini)
+rands2 <- rng$unsignedRandomIntegers( 1000 )
 stopifnot( all.equal(rands2, init_by_array) )
