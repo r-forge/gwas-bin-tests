@@ -2,9 +2,7 @@
 #library(RcppSFMTHeaderExample, lib.loc="tmpsse/")
 library(RcppSFMTHeaderExample)
 
-mexp <- RcppSFMT:::MERSENNE_EXPONENT()
-cat('MEXP=', mexp, "\n")
-cat('ID=', RcppSFMT:::SFMT_ID(), "\n")
+cat('ID=',new(SFMT)$id(), "\n")
 
 cat("using one thread\n")
 system.time( pi1 <- RcppSFMTHeaderExample:::pi_rng_threaded(n=1e8, threads=1, seed=1) )

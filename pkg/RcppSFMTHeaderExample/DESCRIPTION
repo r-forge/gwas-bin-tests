@@ -1,11 +1,12 @@
 Package: RcppSFMTHeaderExample
 Title: Test of the C/C++ API of the RcppSFMT using headers only
 Version: 0.1
-Date: 2012-05-08
+Date: 2012-05-16
 Author: Karl Forner <karl.forner@gmail.com>
 Maintainer: Karl Forner <karl.forner@gmail.com>
 Description: Example use of the C++ API offered by RcppSFMT using only the inlined functions
 Depends: RcppSFMT
+#Import: RcppSFMT, Rcpp, methods
 LinkingTo: Rcpp
 License: GPL-3
 
