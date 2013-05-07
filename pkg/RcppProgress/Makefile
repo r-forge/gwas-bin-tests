@@ -1,7 +1,6 @@
 
 PKG=${shell pwd}
 PKGNAME=${shell basename ${PKG}}
-SUITE=tests/run_runit.R
 R=R
 RSCRIPT=Rscript
 
@@ -10,7 +9,7 @@ TEST_SOURCES := $(wildcard tests/*.[R|r])
 NAMESPACE = NAMESPACE
 DESCRIPTION = DESCRIPTION
 
-TRUETEST_DIR = ..truetest
+.PHONY: example 
 
 all: ${NAMESPACE}
 
@@ -23,62 +22,27 @@ pdfclean:
 
 Rd2.pdf: ${NAMESPACE} ${DESCRIPTION} ${R_SOURCES}
 	rm -f Rd2.pdf
-	$R CMD Rd2dvi --pdf --no-preview man/
-# roxygen: run roxygen that generates the man/*.Rd documentation files and
-# the NAMESPACE file
-#roxygen: ${NAMESPACE} ${DESCRIPTION}
-#
-#${NAMESPACE} ${DESCRIPTION}: ${R_SOURCES}
-#	rm -f man/*.Rd
-#	echo 'library(roxygen); roxygenize(".",".", overwrite=TRUE, copy.package=FALSE, use.Rd2=TRUE)' \
-#	| $R --quiet --vanilla
-#	
-
-#	$R CMD roxygen -d .
+	$R CMD Rd2pdf man/
 
 
-#inst: # Install package
-#	cd ${TOP}/..;\
-#	${R} CMD INSTALL ${PKG}
-
-# Run unit tests
-test: ${NAMESPACE} ${DESCRIPTION}
-	${RSCRIPT} ${SUITE}
-
+	
+example:
+	mkdir -p .install
+	R CMD build .
+	R CMD INSTALL -l .install RcppProgress_0.1.tar.gz
+	R CMD build inst/examples/RcppProgressExample
+	R CMD INSTALL -l .install RcppProgressExample_0.1.tar.gz
+	
 # run R CMD check
 check: ${NAMESPACE} ${DESCRIPTION} clean
-	$R CMD check .
-
-## check the documentation, but not the installation and the tests
-#checkdoc: ${NAMESPACE} ${DESCRIPTION} clean
-#	$R CMD check --no-install --no-tests --check-subdirs=no .
-
-${TRUETEST_DIR}:
-	mkdir ${TRUETEST_DIR}
-
-${TRUETEST_DIR}/${PKGNAME}/${SUITE}: ${NAMESPACE} ${DESCRIPTION} ${R_SOURCES} ${TEST_SOURCES}
-	$R CMD INSTALL --no-docs --install-tests -l ${TRUETEST_DIR} .
-
-# make a real install inside the ..truetest sub directory, then run the tests
-# in this installed package
-true-test: ${NAMESPACE} ${DESCRIPTION} ${TRUETEST_DIR} ${TRUETEST_DIR}/${PKGNAME}/${SUITE}
-	${RSCRIPT} ${SUITE} ${TRUETEST_DIR}
-
-# fast check: in fact not much faster
-fast-check: ${NAMESPACE} ${DESCRIPTION}
-	$R CMD check --no-codoc --no-examples --no-vignettes --no-latex .
-
-debug:
-	@echo R_SOURCES=${R_SOURCES}
-	@echo PKG=${PKG} PKGNAME=${PKGNAME}
-
-make notsoclean:
-	rm -rf ${TRUETEST_DIR} ..Rcheck
-	rm -f  src/*.o src/*.so  */*~ *~
+	$R CMD build .
+	$R CMD check --as-cran RcppProgress_0.1.tar.gz
 
 clean: pdfclean
 	rm -f  src/*.o src/*.so src/libsrc/*.o */*~ *~
-	rm -f config.log config.status
-	rm -rf ${TRUETEST_DIR} ..Rcheck
+	rm -f config.log config.status *.tar.gz Rd2.pdf
+	rm -rf .install RcppProgress.Rcheck
+	
+	
 
 	

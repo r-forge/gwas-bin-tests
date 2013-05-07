@@ -7,7 +7,8 @@
 #include <Rmath.h>
 #include <Rcpp.h>
 
-void long_computation2(int nb) {
+// your function for which to provide support
+void your_long_computation(int nb) {
 	double sum = 0;
 	for (int i = 0; i < nb; ++i) {
 		if ( Progress::check_abort() )
@@ -23,7 +24,7 @@ void test_sequential2(int max, int nb, bool display_progress) {
 	Progress p(max, display_progress);
 	for (int i = 0; i < max; ++i) {
 		if ( ! p.is_aborted() ) {
-			long_computation2(nb);
+			your_long_computation(nb);
 			p.increment();
 		}
 	}
@@ -41,7 +42,7 @@ void test_multithreaded_omp2(int max, int nb, int threads, bool display_progress
 #pragma omp parallel for schedule(dynamic)
 	for (int i = 0; i < max; ++i) {
 		if ( ! p.is_aborted() ) { // the only way to exit an OpenMP loop
-			long_computation2(nb);
+			your_long_computation(nb);
 			p.increment(); // update the progress
 		}
 	}

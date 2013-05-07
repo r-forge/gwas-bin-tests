@@ -9,6 +9,5 @@
 }
 
 .onUnload <- function (libpath) {
-	cat(".onUnload, libpath=", libpath)
 	library.dynam.unload("RcppProgress", libpath)
 }

@@ -6,10 +6,11 @@
 
 #include <Rmath.h>
 
+// this an example of code for which to provide support for user interruption
 void long_computation(int nb) {
 	double sum = 0;
 	for (int i = 0; i < nb; ++i) {
-		if ( Progress::check_abort() )
+		if ( Progress::check_abort() ) // the only modification to the code
 			return;
 		for (int j = 0; j < nb; ++j) {
 			sum += Rf_dlnorm(i+j, 0.0, 1.0, 0);
@@ -17,8 +18,8 @@ void long_computation(int nb) {
 	}
 }
 
+// sequential test, that displays optionally a progress bar
 void test_sequential(int max, int nb, bool display_progress) {
-
 	Progress p(max, display_progress);
 	for (int i = 0; i < max; ++i) {
 		if ( ! p.is_aborted() ) {
@@ -28,6 +29,7 @@ void test_sequential(int max, int nb, bool display_progress) {
 	}
 }
 
+// same, but multithreaded if OpenMP is available test, that displays optionally a progress bar
 void test_multithreaded_omp(int max, int nb, int threads, bool display_progress) {
 
 #ifdef _OPENMP

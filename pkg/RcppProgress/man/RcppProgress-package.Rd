@@ -8,24 +8,21 @@
 \description{
 This package allows to display a progress bar in the R
     console for long running computations taking place in c++ code,
-    and provides support for interrupting those computations even in a multithreaded
-    code using OpenMP.
+    and provides support for interrupting those computations even in a multithreaded code.
 }
 
 \details{
 
 When implementing CPU intensive computations in C++ in R packages, it is natural to want to monitor
 the progress of those computations, and to be able to interrupt them, even when using
-multithreading for example using OpenMP.
-Another feature is that it can be done so that the code will still work even without
-OpenMP support.
-
+multithreading for example with OpenMP.
+Another feature is that it can be done so that the code will still work even without OpenMP support.
 This package offers some facilities to help implementing those features.
 It it biased towards the use of OpenMP, but it should be compatible when using
 multithreading in other ways.
 
 \subsection{quick try}{
-  There are tow tests functions provided by the package so that you can quicky have a test
+  There are two tests functions provided by the package to get a quick overview
   of what can be done.
 
   These tests are:
@@ -57,8 +54,6 @@ be parallelized using OpenMP.
 I will comment the code corresponding to the tests included with the package.
 
 
-
-
 \preformatted{
 void test_multithreaded_omp(int max, int nb, int threads
                               , bool display\_progress) \{
@@ -80,7 +75,7 @@ void test_multithreaded_omp(int max, int nb, int threads
 \}
 }
 
-Here we create a Progress object with the numnber of tasks to performed, then
+Here we create a Progress object with the number of tasks to perform, then
 before performing a task we test for abortion (\code{p.is_aborted()}), because we can not exit an
 OpenMP loop the usual way, suing a break for example, then
 when after the computation, we increment the progress monitor.
@@ -91,7 +86,7 @@ Then let us look at the computation function (that is completely useless) :
 void long_computation(int nb) \{
     double sum = 0;
     for (int i = 0; i < nb; ++i) \{
-      if ( Progress::check_abort() ) // check for abortion
+      if ( Progress::check_abort() ) // check for user abort
         return;
       for (int j = 0; j < nb; ++j) \{
         sum += Rf_dlnorm(i+j, 0.0, 1.0, 0);
@@ -105,13 +100,16 @@ Here the only interesting line is the  \code{Progress::check_abort()} call.
 If called from the master thread, it will check for user interruption, and if needed
 set the abort status code.
 When called from another thread it will just check the status.
-So all the art is to decide where to put his call : it should not be called not too often
+So all the art is to decide where to put his call: it should not be called not too often
 or not frequently enough.
-As a rule of thumb it should be called at a frequency of the order of a second.
+As a rule of thumb it should be called roughly evevry second.
 
 }
 
 \subsection{Using RcppProgress in your package}{
+
+Please note that we provide the \bold{RcppProgressExample} example package along with this package, 
+	located in the \code{examples} directory of the installed package.
 
 Here are the steps to use RcppProgress in a new package:
 
@@ -125,9 +123,11 @@ library(Rcpp)
 Rcpp.package.skeleton( "RcppProgressExample" )}
 }
 
-\item{ DESCRIPTION }{ edit the \bold{DESCRIPTION} file  and add  RcppProgress to the \strong{Depends:} line. e.g.
+\item{ DESCRIPTION }{ edit the \bold{DESCRIPTION} file  and add RcppProgress to 
+the \strong{Depends:} and \strong{LinkingTo:} lines. e.g.
 \preformatted{
 Depends: Rcpp (>= 0.9.4), RcppProgress (>= 0.1)
+LinkingTo: Rcpp, RcppProgress
 }
  }
 
@@ -154,8 +154,8 @@ compile the package (\code{R CMD INSTALL -l test .}) and execute the tests:
 }
 
 }
-}
-}
+} % subsection
+} % details
 
 
 \seealso{
@@ -165,12 +165,13 @@ compile the package (\code{R CMD INSTALL -l test .}) and execute the tests:
 
 \item{ Rcpp }{\url{http://r-forge.r-project.org/projects/rcpp}}
 }
+
 }
 
 \author{
   Karl Forner
 
-  Maintainer: Karl Forner <karl.forner@gmail.com>
+  Maintainer: Karl Forner <karl.forner@quartzbio.com>
 }
 
 \keyword{ package }

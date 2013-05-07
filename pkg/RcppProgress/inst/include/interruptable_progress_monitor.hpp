@@ -32,8 +32,7 @@ public: // ====== LIFECYCLE =====
 	 */
 	InterruptableProgressMonitor(unsigned long max = 1,  bool display_progress = true)  {
 		reset(max, display_progress);
-		if ( is_display_on() )
-			display_progress_bar();
+		display_progress_bar();
 	}
 
 	~InterruptableProgressMonitor() { }
@@ -159,6 +158,8 @@ public: // ===== methods for non-MASTER threads =====
 public: // ===== methods related to DISPLAY, should not be called directly =====
 
 	void update_display() {
+		if ( !is_display_on() )
+			return;
 		int nb_ticks = _compute_nb_ticks(_current) - _compute_nb_ticks(_last_displayed);
 		if (nb_ticks > 0) {
 			_last_displayed = _current;
@@ -170,6 +171,8 @@ public: // ===== methods related to DISPLAY, should not be called directly =====
 	}
 
 	void end_display() {
+		if ( !is_display_on() )
+			return;
 		if ( ! is_aborted() ) {
 			// compute the remaining ticks and display them
 			int remaining = 50 - _compute_nb_ticks(_last_displayed);
@@ -179,6 +182,8 @@ public: // ===== methods related to DISPLAY, should not be called directly =====
 	}
 
 	void display_progress_bar() {
+		if ( !is_display_on() )
+			return;
 		REprintf("0%   10   20   30   40   50   60   70   80   90   100%\n");
 		REprintf("|----|----|----|----|----|----|----|----|----|----|\n");
 	}
